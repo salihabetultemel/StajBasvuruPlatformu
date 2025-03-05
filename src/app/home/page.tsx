@@ -1,10 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Navbar from "../../../components/navbar";
 import SidebarMenu from "../../../components/sidebarmenu";
 
+
 export default function Home() {
+  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar açık/kapalı durumu
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; text: string }[]>([]);
   const [input, setInput] = useState("");
@@ -91,7 +94,8 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="container bg-gray-700 p-4 flex justify-center space-x-6 border border-gray-600 rounded-md">
               <button
-                className="px-6 py-3 bg-[#660066] text-white rounded-md shadow-md  hover:bg-purple-800  transition-all"
+                className="px-6 py-3 bg-[#660066] text-white rounded-md shadow-md hover:bg-purple-800 transition-all"
+                onClick={() => router.replace("/document")} // push yerine replace kullanıldı
               >
                 Belge Oluştur
               </button>
