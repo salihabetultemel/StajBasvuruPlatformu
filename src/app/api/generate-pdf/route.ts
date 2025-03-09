@@ -4,34 +4,19 @@ import { PDFDocument } from "pdf-lib";
 import path from "path";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 
-// Form verilerini Word'e ekleyip PDF olarak döndüren API
 export async function POST(req: Request) {
   try {
     const formData = await req.json();
-    
-    // Staj türüne göre doğru belgeyi seç
-    let templateFile = "";
-    if (formData.stajTuru === "yaz") {
-      templateFile = "staj_yaz.docx";
-    } else if (formData.stajTuru === "donem") {
-      templateFile = "staj_donem.docx";
-    }
 
-    // Ücretli ise EK-2 formu da oluşturulmalı
-    const ek2Gerekli = formData.ucretli;
+    // 1️⃣ **Doğru Word Belgesini Seç**
+    let templateFile = formData.stajTuru === "yaz" ? "staj_yaz.docx" : "staj_donem.docx";
+    let docPath = path.join(process.cwd(), "public/documents", templateFile);
+    let ek2Path = path.join(process.cwd(), "public/documents", "ek2.docx"); // EK-2 dosyası
 
-    // Dosya yolları
-    const docPath = path.join(process.cwd(), "public/documents", templateFile);
-    const ek2Path = path.join(process.cwd(), "public/documents", "ek2.docx");
-
-    // Word dosyasını oku
-    const docBuffer = await readFile(docPath);
-
-    // Yeni Word belgesi oluştur
+    // 2️⃣ **Word Belgesini Oku ve Verileri İşle**
     const doc = new Document({
       sections: [
         {
-          properties: {},
           children: [
             new Paragraph({
               children: [
@@ -41,13 +26,13 @@ export async function POST(req: Request) {
                 new TextRun("\n"),
                 new TextRun(`Öğrenci No: ${formData.ogrenciNo}`),
                 new TextRun("\n"),
+                new TextRun(`Bölüm: ${formData.bolum}`),
+                new TextRun("\n"),
                 new TextRun(`E-posta: ${formData.eposta}`),
                 new TextRun("\n"),
                 new TextRun(`Telefon: ${formData.telefon}`),
                 new TextRun("\n"),
                 new TextRun(`Staj Yeri: ${formData.stajYeri}`),
-                new TextRun("\n"),
-                new TextRun(`Faaliyet Alanı: ${formData.faaliyetAlani}`),
                 new TextRun("\n"),
                 new TextRun(`Başlangıç Tarihi: ${formData.baslangicTarihi}`),
                 new TextRun("\n"),
@@ -61,23 +46,47 @@ export async function POST(req: Request) {
       ],
     });
 
-    // Yeni Word belgesini buffer olarak kaydet
-    const wordBuffer = await Packer.toBuffer(doc);
-    
-    // Word'ü PDF'ye çevir
+    // 3️⃣ **Eğer Ücretli Seçildiyse EK-2 Formunu İşle**
+    let ek2Doc = null;
+    if (formData.ucretli) {
+      ek2Doc = new Document({
+        sections: [
+          {
+            children: [
+              new Paragraph({
+                children: [
+                  new TextRun(`Firma Vergi No: ${formData.firmaVergiNo}`),
+                  new TextRun("\n"),
+                  new TextRun(`Firma Adı: ${formData.firmaAdi}`),
+                  new TextRun("\n"),
+                  new TextRun(`Firma IBAN: ${formData.firmaIBAN}`),
+                  new TextRun("\n"),
+                  new TextRun(`Stajyere Ödenecek Ücret: ${formData.stajUcreti} TL`),
+                  new TextRun("\n"),
+                ],
+              }),
+            ],
+          },
+        ],
+      });
+    }
+
+    // 4️⃣ **Word'ü PDF'ye Çevir**
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([600, 800]);
     const { width, height } = page.getSize();
 
-    page.drawText(`Staj Belgesi\n\nAdı Soyadı: ${formData.adSoyad}\nT.C. Kimlik No: ${formData.tcKimlik}`, {
-      x: 50,
-      y: height - 100,
-      size: 12,
-    });
+    page.drawText(
+      `Staj Belgesi\n\nAdı Soyadı: ${formData.adSoyad}\nT.C. Kimlik No: ${formData.tcKimlik}\nÖğrenci No: ${formData.ogrenciNo}`,
+      {
+        x: 50,
+        y: height - 100,
+        size: 12,
+      }
+    );
 
     const pdfBytes = await pdfDoc.save();
 
-    // PDF'yi geri döndür
     return new NextResponse(pdfBytes, {
       status: 200,
       headers: {

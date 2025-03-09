@@ -3,10 +3,11 @@
 import Navbar from "../../../components/navbar";
 import { useState } from "react";
 import SidebarMenu from "../../../components/sidebarmenu";
+import { validateForm } from "../utils/validateForm"; // Yeni doğrulama fonksiyonu
 
 export default function DocumentPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [stajTuru, setStajTuru] = useState(""); // Yaz Stajı veya Dönem İçi
+  const [stajTuru, setStajTuru] = useState("");
   const [ucretli, setUcretli] = useState(false);
   const [cumartesiCalisiyorMu, setCumartesiCalisiyorMu] = useState(false);
   const [hata, setHata] = useState("");
@@ -17,6 +18,7 @@ export default function DocumentPage() {
     adSoyad: "",
     dogumTarihi: "",
     ogrenciNo: "",
+    bolum: "",
     eposta: "",
     telefon: "",
     stajYeri: "",
@@ -29,48 +31,38 @@ export default function DocumentPage() {
     isverenGorevi: "",
     isverenEposta: "",
     isverenTelefon: "",
+    firmaVergiNo: "",
+    vergiDairesi: "",
+    firmaAdi: "",
+    firmaAdres: "",
+    firmaBanka: "",
+    firmaIBAN: "",
+    stajUcreti: "",
   });
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // TC Kimlik No, e-posta vb. inputları kontrol etme
+  // Input değişikliklerini yakala ve doğrula
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
-    // TC Kimlik No için 11 karakter sınırı koy
-    if (name === "tcKimlik" && value.length > 11) return;
+    if ((name === "tcKimlik" && value.length > 11) || (name === "ogrenciNo" && value.length > 12)) {
+      return;
+    }
 
     setFormData({ ...formData, [name]: value });
   };
 
-  // 20 iş günü kontrolü
-  const isGunleriniHesapla = (baslangic: string, bitis: string) => {
-    let startDate = new Date(baslangic);
-    let endDate = new Date(bitis);
-    let count = 0;
-
-    while (startDate <= endDate) {
-      const day = startDate.getDay(); // 0 = Pazar, 6 = Cumartesi
-      if (day !== 0 && (day !== 6 || cumartesiCalisiyorMu)) {
-        count++;
-      }
-      startDate.setDate(startDate.getDate() + 1);
-    }
-
-    return count;
-  };
-
-  // PDF oluşturma işlemi
+  // Form gönderme işlemi
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const isGunSayisi = isGunleriniHesapla(formData.baslangicTarihi, formData.bitisTarihi);
-
-    // Tarih aralığı tam olarak 20 iş günü değilse hata ver
-    if (isGunSayisi !== 20) {
-      setHata(`Seçilen tarih aralığında tam olarak 20 iş günü olmalıdır. Şu an ${isGunSayisi} iş günü seçildi.`);
+    // Form doğrulaması
+    const hataMesaji = validateForm(formData, cumartesiCalisiyorMu);
+    if (hataMesaji) {
+      setHata(hataMesaji);
       return;
     }
 
@@ -80,7 +72,7 @@ export default function DocumentPage() {
       const response = await fetch("/api/generate-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ucretli, cumartesiCalisiyorMu, stajTuru }),
       });
 
       if (!response.ok) throw new Error("PDF oluşturulamadı");
@@ -101,18 +93,15 @@ export default function DocumentPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      {/* Sidebar Menu */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
-      {/* Navbar */}
       <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 shadow-lg">
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
       <h1 className="text-2xl font-bold mb-4">Belge Oluştur</h1>
 
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        {/* Staj Türü Seçimi */}
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full">
         <label className="block mb-2 font-medium text-black">Staj Türü:</label>
         <select
           name="stajTuru"
@@ -126,7 +115,6 @@ export default function DocumentPage() {
           <option value="donem">Dönem İçi Staj</option>
         </select>
 
-        {/* Tüm Form Bilgileri */}
         {Object.keys(formData).map((key) => (
           <div key={key} className="mb-4">
             <label className="block font-medium text-black capitalize">{key.replace(/([A-Z])/g, " $1")}</label>
@@ -141,7 +129,6 @@ export default function DocumentPage() {
           </div>
         ))}
 
-        {/* Cumartesi Çalışılıyor mu? */}
         <label className="block mb-2 font-medium text-black flex items-center">
           <input
             type="checkbox"
@@ -152,7 +139,6 @@ export default function DocumentPage() {
           Cumartesi çalışılıyor mu?
         </label>
 
-        {/* Ücretli mi? */}
         <label className="block mb-2 font-medium text-black flex items-center">
           <input
             type="checkbox"
@@ -163,7 +149,6 @@ export default function DocumentPage() {
           Ücretli
         </label>
 
-        {/* EK-2 Formu (Eğer Ücretliyse) */}
         {ucretli && (
           <div className="bg-gray-200 p-4 rounded mt-4">
             <h2 className="text-lg font-bold text-black">EK-2 Formu Bilgileri</h2>
@@ -182,10 +167,8 @@ export default function DocumentPage() {
           </div>
         )}
 
-        {/* Hata mesajı */}
         {hata && <p className="text-red-500">{hata}</p>}
 
-        {/* PDF Oluştur Butonu */}
         <button
           type="submit"
           className="w-full bg-purple-700 text-white py-2 rounded mt-4 hover:bg-purple-800 transition"
