@@ -39,6 +39,8 @@ export default function DocumentPage() {
     firmaTelefon: "5556662323",
     firmaBanka: "aknank",
     firmaIBAN: "tr6464654646644",
+    stajYeritelefon: "5551234567",           // ✅ Eklendi
+    stajyerieposta: "ali.staj@firma.com",   // ✅ Eklendi
   });
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -134,7 +136,13 @@ export default function DocumentPage() {
                 {key.replace(/([A-Z])/g, " $1")}
               </label>
               <input
-                type={key.includes("Tarihi") ? "date" : key.includes("eposta") ? "email" : "text"}
+                type={
+                  key.toLowerCase().includes("tarihi")
+                    ? "date"
+                    : key.toLowerCase().includes("eposta")
+                    ? "email"
+                    : "text"
+                }
                 name={key}
                 value={formData[key as keyof typeof formData]}
                 onChange={handleChange}

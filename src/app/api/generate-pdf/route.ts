@@ -6,6 +6,12 @@ import { readFile } from "fs/promises";
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
 
+// Tarih formatlama fonksiyonu
+const formatDate = (isoDate: string) => {
+  const [year, month, day] = isoDate.split("-");
+  return `${day}.${month}.${year}`;
+};
+
 // Şablon doldurma
 async function fillTemplate(templatePath: string, fullData: any) {
   const templateBuffer = await readFile(templatePath, "binary");
@@ -14,7 +20,6 @@ async function fillTemplate(templatePath: string, fullData: any) {
   const doc = new Docxtemplater(zip, {
     paragraphLoop: true,
     linebreaks: true,
-    delimiters: { start: '[[', end: ']]' }, // <-- bunu ekle!
     // @ts-expect-error: Docxtemplater types don't know 'data', but it's valid
     data: fullData,
   });
@@ -60,7 +65,12 @@ export async function POST(req: Request) {
       stajTuru,
       ucretli,
       cumartesiCalisiyorMu,
+      dogumTarihi: formatDate(formData.dogumTarihi),
+      baslangicTarihi: formatDate(formData.baslangicTarihi),
+      bitisTarihi: formatDate(formData.bitisTarihi),
     };
+
+    console.log("🧾 Form verisi:", fullData);
 
     const filledDocPath = await fillTemplate(templatePath, fullData);
     const filledDocs = [filledDocPath];
@@ -83,15 +93,6 @@ export async function POST(req: Request) {
       const pdfPath = docPath.replace(".docx", ".pdf");
       pdfPaths.push(pdfPath);
     }
-
-    const formatDate = (isoDate: string) => {
-        const [year, month, day] = isoDate.split("-");
-        return `${day}.${month}.${year}`;
-      };
-      
-      // örnek:
-      fullData.dogumTarihi = formatDate(fullData.dogumTarihi);
-      
 
     const finalPdfPath = pdfPaths[0];
     const pdfBuffer = await readFile(finalPdfPath);
