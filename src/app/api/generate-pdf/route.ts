@@ -1,101 +1,111 @@
 import { NextResponse } from "next/server";
-import { readFile, writeFile } from "fs-extra";
-import { PDFDocument } from "pdf-lib";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import path from "path";
-import { Document, Packer, Paragraph, TextRun } from "docx";
+import convert from "docx2pdf";
+import { readFile } from "fs/promises";
+import PizZip from "pizzip";
+import Docxtemplater from "docxtemplater";
 
+// Şablon doldurma
+async function fillTemplate(templatePath: string, fullData: any) {
+  const templateBuffer = await readFile(templatePath, "binary");
+  const zip = new PizZip(templateBuffer);
+
+  const doc = new Docxtemplater(zip, {
+    paragraphLoop: true,
+    linebreaks: true,
+    delimiters: { start: '[[', end: ']]' }, // <-- bunu ekle!
+    // @ts-expect-error: Docxtemplater types don't know 'data', but it's valid
+    data: fullData,
+  });
+
+  try {
+    doc.render();
+  } catch (error: any) {
+    console.error("❌ Şablon doldurma hatası:", error);
+    throw new Error("Şablon doldurulurken hata oluştu.");
+  }
+
+  const outputPath = templatePath.replace(".docx", "_filled.docx");
+  const generatedBuffer = doc.getZip().generate({ type: "nodebuffer" });
+  writeFileSync(outputPath, generatedBuffer);
+
+  console.log("✅ Word şablon dolduruldu:", outputPath);
+  return outputPath;
+}
+
+// Ana handler
 export async function POST(req: Request) {
   try {
-    const formData = await req.json();
+    const data = await req.json();
+    const { stajTuru, ucretli, cumartesiCalisiyorMu, ...formData } = data;
 
-    // 1️⃣ **Doğru Word Belgesini Seç**
-    let templateFile = formData.stajTuru === "yaz" ? "staj_yaz.docx" : "staj_donem.docx";
-    let docPath = path.join(process.cwd(), "public/documents", templateFile);
-    let ek2Path = path.join(process.cwd(), "public/documents", "ek2.docx"); // EK-2 dosyası
+    const documentsDir = path.join(process.cwd(), "public/documents");
+    const outputDir = path.join(process.cwd(), "public/output");
 
-    // 2️⃣ **Word Belgesini Oku ve Verileri İşle**
-    const doc = new Document({
-      sections: [
-        {
-          children: [
-            new Paragraph({
-              children: [
-                new TextRun(`Adı Soyadı: ${formData.adSoyad}`),
-                new TextRun("\n"),
-                new TextRun(`T.C. Kimlik No: ${formData.tcKimlik}`),
-                new TextRun("\n"),
-                new TextRun(`Öğrenci No: ${formData.ogrenciNo}`),
-                new TextRun("\n"),
-                new TextRun(`Bölüm: ${formData.bolum}`),
-                new TextRun("\n"),
-                new TextRun(`E-posta: ${formData.eposta}`),
-                new TextRun("\n"),
-                new TextRun(`Telefon: ${formData.telefon}`),
-                new TextRun("\n"),
-                new TextRun(`Staj Yeri: ${formData.stajYeri}`),
-                new TextRun("\n"),
-                new TextRun(`Başlangıç Tarihi: ${formData.baslangicTarihi}`),
-                new TextRun("\n"),
-                new TextRun(`Bitiş Tarihi: ${formData.bitisTarihi}`),
-                new TextRun("\n"),
-                new TextRun(`Cumartesi Çalışılıyor mu?: ${formData.cumartesiCalisiyorMu ? "Evet" : "Hayır"}`),
-              ],
-            }),
-          ],
-        },
-      ],
-    });
-
-    // 3️⃣ **Eğer Ücretli Seçildiyse EK-2 Formunu İşle**
-    let ek2Doc = null;
-    if (formData.ucretli) {
-      ek2Doc = new Document({
-        sections: [
-          {
-            children: [
-              new Paragraph({
-                children: [
-                  new TextRun(`Firma Vergi No: ${formData.firmaVergiNo}`),
-                  new TextRun("\n"),
-                  new TextRun(`Firma Adı: ${formData.firmaAdi}`),
-                  new TextRun("\n"),
-                  new TextRun(`Firma IBAN: ${formData.firmaIBAN}`),
-                  new TextRun("\n"),
-                  new TextRun(`Stajyere Ödenecek Ücret: ${formData.stajUcreti} TL`),
-                  new TextRun("\n"),
-                ],
-              }),
-            ],
-          },
-        ],
-      });
+    if (!existsSync(outputDir)) {
+      mkdirSync(outputDir, { recursive: true });
+      console.log("📁 'output' klasörü oluşturuldu.");
     }
 
-    // 4️⃣ **Word'ü PDF'ye Çevir**
-    const pdfDoc = await PDFDocument.create();
-    const page = pdfDoc.addPage([600, 800]);
-    const { width, height } = page.getSize();
+    const templateName = stajTuru === "yaz" ? "staj_yaz.docx" : "staj_donem.docx";
+    const templatePath = path.join(documentsDir, templateName);
 
-    page.drawText(
-      `Staj Belgesi\n\nAdı Soyadı: ${formData.adSoyad}\nT.C. Kimlik No: ${formData.tcKimlik}\nÖğrenci No: ${formData.ogrenciNo}`,
-      {
-        x: 50,
-        y: height - 100,
-        size: 12,
+    if (!existsSync(templatePath)) {
+      throw new Error(`Şablon dosyası bulunamadı: ${templateName}`);
+    }
+
+    const fullData = {
+      ...formData,
+      stajTuru,
+      ucretli,
+      cumartesiCalisiyorMu,
+    };
+
+    const filledDocPath = await fillTemplate(templatePath, fullData);
+    const filledDocs = [filledDocPath];
+
+    if (ucretli) {
+      const ek2Path = path.join(documentsDir, "ek2.docx");
+      if (existsSync(ek2Path)) {
+        const filledEk2Path = await fillTemplate(ek2Path, fullData);
+        filledDocs.push(filledEk2Path);
+        console.log("✅ EK-2 belgesi de oluşturuldu.");
+      } else {
+        console.warn("⚠️ EK-2 belgesi bulunamadı, atlanıyor.");
       }
-    );
+    }
 
-    const pdfBytes = await pdfDoc.save();
+    const pdfPaths: string[] = [];
+    for (const docPath of filledDocs) {
+      console.log("📄 PDF'ye dönüştürülüyor:", docPath);
+      await convert(docPath);
+      const pdfPath = docPath.replace(".docx", ".pdf");
+      pdfPaths.push(pdfPath);
+    }
 
-    return new NextResponse(pdfBytes, {
+    const formatDate = (isoDate: string) => {
+        const [year, month, day] = isoDate.split("-");
+        return `${day}.${month}.${year}`;
+      };
+      
+      // örnek:
+      fullData.dogumTarihi = formatDate(fullData.dogumTarihi);
+      
+
+    const finalPdfPath = pdfPaths[0];
+    const pdfBuffer = await readFile(finalPdfPath);
+    console.log("✅ PDF oluşturuldu. Boyut:", pdfBuffer.length, "bayt");
+
+    return new NextResponse(pdfBuffer, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": 'attachment; filename="staj_belgesi.pdf"',
       },
     });
-  } catch (error) {
-    console.error("PDF oluşturma hatası:", error);
-    return new NextResponse("Hata oluştu", { status: 500 });
+  } catch (error: any) {
+    console.error("❌ PDF oluşturma hatası:", error.message);
+    return new NextResponse(error.message || "Bilinmeyen bir hata oluştu.", { status: 500 });
   }
 }

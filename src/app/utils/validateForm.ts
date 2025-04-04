@@ -20,7 +20,7 @@ export function validateForm(formData: any, cumartesiDahil: boolean): string | n
 
   // Telefon doğrulama (10 haneli, sadece rakam)
   if (!/^\d{10}$/.test(telefon)) {
-    return "Telefon numarası 10 haneli olmalıdır (örn: 05551234567).";
+    return "Telefon numarası 10 haneli olmalıdır (örn: 5551234567).";
   }
 
   // Tarih formatı ve iş günü hesaplama

@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "chrome-aws-lambda": "^10.1.0",
     "date-fns": "^4.1.0",
     "docx": "^9.2.0",
+    "docx2pdf": "^0.0.4",
+    "docxtemplater": "^3.61.0",
     "dotenv": "^16.4.7",
     "fs-extra": "^11.3.0",
     "mammoth": "^1.9.0",
@@ -19,6 +22,8 @@
     "path": "^0.12.7",
     "pdf-lib": "^1.17.1",
     "pg": "^8.13.3",
+    "pizzip": "^3.1.8",
+    "puppeteer": "^24.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

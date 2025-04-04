@@ -3,7 +3,7 @@
 import Navbar from "../../../components/navbar";
 import { useState } from "react";
 import SidebarMenu from "../../../components/sidebarmenu";
-import { validateForm } from "../utils/validateForm"; // Yeni doğrulama fonksiyonu
+import { validateForm } from "../utils/validateForm";
 
 export default function DocumentPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,39 +12,37 @@ export default function DocumentPage() {
   const [cumartesiCalisiyorMu, setCumartesiCalisiyorMu] = useState(false);
   const [hata, setHata] = useState("");
 
-  // Form Bilgileri
   const [formData, setFormData] = useState({
-    tcKimlik: "",
-    adSoyad: "",
-    dogumTarihi: "",
-    ogrenciNo: "",
-    bolum: "",
-    eposta: "",
-    telefon: "",
-    stajYeri: "",
-    faaliyetAlani: "",
-    baslangicTarihi: "",
-    bitisTarihi: "",
-    calisanSayisi: "",
-    muhendisSayisi: "",
-    isverenAdi: "",
-    isverenGorevi: "",
-    isverenEposta: "",
-    isverenTelefon: "",
-    firmaVergiNo: "",
-    vergiDairesi: "",
-    firmaAdi: "",
-    firmaAdres: "",
-    firmaBanka: "",
-    firmaIBAN: "",
-    stajUcreti: "",
+    tcKimlik: "33303602036",
+    adSoyad: "ali",
+    dogumTarihi: "2002-01-20",
+    ogrenciNo: "45645646464",
+    bolum: "bilg müh",
+    eposta: "ali@gmial.com",
+    telefon: "5562362365",
+    stajYeri: "akdlsjds",
+    faaliyetAlani: "yazuılm",
+    baslangicTarihi: "2025-07-07",
+    bitisTarihi: "2025-08-05",
+    calisanSayisi: "5",
+    muhendisSayisi: "5",
+    isverenAdi: "ldldl",
+    isverenGorevi: "müh",
+    isverenEposta: "müh@gmail.com",
+    isverenTelefon: "5562365623",
+    faksNo: "1313131313131",
+    stajUcreti: "3000",
+    firmaVergiNo: "4545454545",
+    vergiDairesi: "ist ",
+    firmaAdi: "akakaka",
+    firmaAdres: "aldksdkşskdşa",
+    firmaTelefon: "5556662323",
+    firmaBanka: "aknank",
+    firmaIBAN: "tr6464654646644",
   });
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
-  // Input değişikliklerini yakala ve doğrula
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
@@ -52,14 +50,12 @@ export default function DocumentPage() {
       return;
     }
 
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Form gönderme işlemi
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Form doğrulaması
     const hataMesaji = validateForm(formData, cumartesiCalisiyorMu);
     if (hataMesaji) {
       setHata(hataMesaji);
@@ -75,7 +71,10 @@ export default function DocumentPage() {
         body: JSON.stringify({ ...formData, ucretli, cumartesiCalisiyorMu, stajTuru }),
       });
 
-      if (!response.ok) throw new Error("PDF oluşturulamadı");
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || "PDF oluşturulamadı");
+      }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
@@ -85,9 +84,9 @@ export default function DocumentPage() {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("PDF oluşturma hatası:", error);
-      setHata("PDF oluşturulurken hata meydana geldi.");
+    } catch (error: any) {
+      console.error("PDF oluşturma hatası:", error.message);
+      setHata(`PDF oluşturulamadı: ${error.message}`);
     }
   };
 
@@ -115,19 +114,35 @@ export default function DocumentPage() {
           <option value="donem">Dönem İçi Staj</option>
         </select>
 
-        {Object.keys(formData).map((key) => (
-          <div key={key} className="mb-4">
-            <label className="block font-medium text-black capitalize">{key.replace(/([A-Z])/g, " $1")}</label>
-            <input
-              type={key.includes("Tarih") ? "date" : key.includes("eposta") ? "email" : "text"}
-              name={key}
-              value={formData[key as keyof typeof formData]}
-              onChange={handleChange}
-              className="w-full p-2 border rounded text-black"
-              required
-            />
-          </div>
-        ))}
+        {Object.keys(formData)
+          .filter(
+            (key) =>
+              ![
+                "firmaVergiNo",
+                "vergiDairesi",
+                "firmaAdi",
+                "firmaAdres",
+                "firmaBanka",
+                "firmaIBAN",
+                "stajUcreti",
+                "firmaTelefon",
+              ].includes(key)
+          )
+          .map((key) => (
+            <div key={key} className="mb-4">
+              <label className="block font-medium text-black capitalize">
+                {key.replace(/([A-Z])/g, " $1")}
+              </label>
+              <input
+                type={key.includes("Tarihi") ? "date" : key.includes("eposta") ? "email" : "text"}
+                name={key}
+                value={formData[key as keyof typeof formData]}
+                onChange={handleChange}
+                className="w-full p-2 border rounded text-black"
+                required
+              />
+            </div>
+          ))}
 
         <label className="block mb-2 font-medium text-black flex items-center">
           <input
@@ -151,19 +166,29 @@ export default function DocumentPage() {
 
         {ucretli && (
           <div className="bg-gray-200 p-4 rounded mt-4">
-            <h2 className="text-lg font-bold text-black">EK-2 Formu Bilgileri</h2>
-            <label className="block mb-2 font-medium text-black">Stajyer Ödenecek Ücret:</label>
-            <input
-              type="text"
-              name="stajUcreti"
-              className="w-full p-2 border rounded mb-4 text-black"
-              placeholder="TL cinsinden"
-              required
-            />
-            <label className="block mb-2 font-medium text-black">Firma Vergi Numarası:</label>
-            <input type="text" name="firmaVergiNo" className="w-full p-2 border rounded mb-4 text-black" required />
-            <label className="block mb-2 font-medium text-black">Firma IBAN:</label>
-            <input type="text" name="firmaIBAN" className="w-full p-2 border rounded mb-4 text-black" required />
+            <h2 className="text-lg font-bold text-black mb-2">EK-2 Formu Bilgileri</h2>
+            {[
+              { name: "stajUcreti", label: "Stajyer Ödenecek Ücret" },
+              { name: "firmaVergiNo", label: "Firma Vergi No" },
+              { name: "vergiDairesi", label: "Vergi Dairesi" },
+              { name: "firmaAdi", label: "Firma Adı" },
+              { name: "firmaAdres", label: "Firma Adresi" },
+              { name: "firmaTelefon", label: "Firma Telefon" },
+              { name: "firmaBanka", label: "Firma Banka / Şube" },
+              { name: "firmaIBAN", label: "Firma IBAN" },
+            ].map(({ name, label }) => (
+              <div key={name} className="mb-4">
+                <label className="block font-medium text-black">{label}:</label>
+                <input
+                  type="text"
+                  name={name}
+                  value={formData[name as keyof typeof formData] || ""}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded text-black"
+                  required
+                />
+              </div>
+            ))}
           </div>
         )}
 
