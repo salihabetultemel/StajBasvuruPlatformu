@@ -10,6 +10,7 @@ export default function DocumentPage() {
   const [stajTuru, setStajTuru] = useState("");
   const [ucretli, setUcretli] = useState(false);
   const [cumartesiCalisiyorMu, setCumartesiCalisiyorMu] = useState(false);
+  const [calismaGunleri, setCalismaGunleri] = useState<string[]>([]);
   const [hata, setHata] = useState("");
 
   const [formData, setFormData] = useState({
@@ -39,8 +40,8 @@ export default function DocumentPage() {
     firmaTelefon: "5556662323",
     firmaBanka: "aknank",
     firmaIBAN: "tr6464654646644",
-    stajYeritelefon: "5551234567",          
-    stajyerieposta: "ali.staj@firma.com",  
+    stajYeritelefon: "5551234567",
+    stajyerieposta: "ali.staj@firma.com",
   });
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -55,6 +56,31 @@ export default function DocumentPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  function calculateWorkingDays(start: string, end: string, selectedDays: string[]) {
+    const dayMap: { [key: number]: string } = {
+      0: "Pazar",
+      1: "Pazartesi",
+      2: "Salı",
+      3: "Çarşamba",
+      4: "Perşembe",
+      5: "Cuma",
+      6: "Cumartesi",
+    };
+
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    let count = 0;
+
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+      const dayName = dayMap[d.getDay()];
+      if (selectedDays.includes(dayName)) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -64,13 +90,36 @@ export default function DocumentPage() {
       return;
     }
 
+    if (stajTuru === "donem") {
+      if (calismaGunleri.length < 3) {
+        setHata("Dönem içi staj için haftada en az 3 gün seçilmelidir.");
+        return;
+      }
+
+      const workDayCount = calculateWorkingDays(
+        formData.baslangicTarihi,
+        formData.bitisTarihi,
+        calismaGunleri
+      );
+      if (workDayCount < 20) {
+        setHata(`Seçtiğiniz günlerle bu tarih aralığında sadece ${workDayCount} iş günü var. En az 20 iş günü gerekir.`);
+        return;
+      }
+    }
+
     setHata("");
 
     try {
       const response = await fetch("/api/generate-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, ucretli, cumartesiCalisiyorMu, stajTuru }),
+        body: JSON.stringify({
+          ...formData,
+          ucretli,
+          cumartesiCalisiyorMu,
+          stajTuru,
+          calismaGunleri,
+        }),
       });
 
       if (!response.ok) {
@@ -100,7 +149,7 @@ export default function DocumentPage() {
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
-      <h1 className="text-2xl font-bold mb-4">Belge Oluştur</h1>
+      <h1 className="text-2xl font-bold mb-4 mt-20">Belge Oluştur</h1>
 
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full">
         <label className="block mb-2 font-medium text-black">Staj Türü:</label>
@@ -115,6 +164,31 @@ export default function DocumentPage() {
           <option value="yaz">Yaz Stajı</option>
           <option value="donem">Dönem İçi Staj</option>
         </select>
+
+        {stajTuru === "donem" && (
+          <div className="mb-4">
+            <label className="block font-medium text-black mb-2">
+              Haftalık Çalışma Günleri (en az 3 gün):
+            </label>
+            {["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"].map((gün) => (
+              <label key={gün} className="inline-flex items-center mr-4 text-black">
+                <input
+                  type="checkbox"
+                  className="mr-2"
+                  checked={calismaGunleri.includes(gün)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setCalismaGunleri([...calismaGunleri, gün]);
+                    } else {
+                      setCalismaGunleri(calismaGunleri.filter((g) => g !== gün));
+                    }
+                  }}
+                />
+                {gün}
+              </label>
+            ))}
+          </div>
+        )}
 
         {Object.keys(formData)
           .filter(
@@ -200,7 +274,7 @@ export default function DocumentPage() {
           </div>
         )}
 
-        {hata && <p className="text-red-500">{hata}</p>}
+        {hata && <p className="text-red-500 mt-2">{hata}</p>}
 
         <button
           type="submit"

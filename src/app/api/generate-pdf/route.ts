@@ -17,12 +17,9 @@ async function fillTemplate(templatePath: string, fullData: any) {
   const templateBuffer = await readFile(templatePath, "binary");
   const zip = new PizZip(templateBuffer);
 
-  console.log(fullData)
-
   const doc = new Docxtemplater(zip, {
     paragraphLoop: true,
     linebreaks: true,
-    
   });
 
   doc.setData(fullData);
@@ -46,7 +43,7 @@ async function fillTemplate(templatePath: string, fullData: any) {
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { stajTuru, ucretli, cumartesiCalisiyorMu, ...formData } = data;
+    const { stajTuru, ucretli, cumartesiCalisiyorMu, calismaGunleri = [], ...formData } = data;
 
     const documentsDir = path.join(process.cwd(), "public/documents");
     const outputDir = path.join(process.cwd(), "public/output");
@@ -63,7 +60,8 @@ export async function POST(req: Request) {
       throw new Error(`Şablon dosyası bulunamadı: ${templateName}`);
     }
 
-    const fullData = {
+    // Şablona gönderilecek veri
+    const fullData: any = {
       ...formData,
       stajTuru,
       ucretli,
@@ -72,6 +70,23 @@ export async function POST(req: Request) {
       baslangicTarihi: formatDate(formData.baslangicTarihi),
       bitisTarihi: formatDate(formData.bitisTarihi),
     };
+
+    // Eğer dönem içi staj ise çalışma günlerini X olarak ekle
+    if (stajTuru === "donem") {
+      const gunMap: { [key: string]: string } = {
+        Pazartesi: "gun_pzt",
+        Salı: "gun_sal",
+        Çarşamba: "gun_car",
+        Perşembe: "gun_per",
+        Cuma: "gun_cum",
+        Cumartesi: "gun_cmt",
+      };
+    
+      Object.entries(gunMap).forEach(([gun, key]) => {
+        fullData[key] = calismaGunleri?.includes(gun) ? "X" : "";
+      });
+    }
+    
 
     console.log("🧾 Form verisi:", fullData);
 

@@ -1,7 +1,17 @@
-import { isGunleriniHesapla } from "./isGunleriniHesapla"; // İş günü hesaplama fonksiyonu
-
-export function validateForm(formData: any, cumartesiDahil: boolean): string | null {
-  const { tcKimlik, ogrenciNo, eposta, telefon, baslangicTarihi, bitisTarihi } = formData;
+export function validateForm(
+  formData: any,
+  cumartesiDahil: boolean
+): string | null {
+  const {
+    tcKimlik,
+    ogrenciNo,
+    eposta,
+    telefon,
+    baslangicTarihi,
+    bitisTarihi,
+    stajTuru,
+    calismaGunleri = [],
+  } = formData;
 
   // TC Kimlik No doğrulama
   if (tcKimlik.length !== 11 || !/^\d+$/.test(tcKimlik)) {
@@ -23,15 +33,50 @@ export function validateForm(formData: any, cumartesiDahil: boolean): string | n
     return "Telefon numarası 10 haneli olmalıdır (örn: 5551234567).";
   }
 
-  // Tarih formatı ve iş günü hesaplama
+  // Tarih formatı
   if (!/^\d{4}-\d{2}-\d{2}$/.test(baslangicTarihi) || !/^\d{4}-\d{2}-\d{2}$/.test(bitisTarihi)) {
     return "Tarih formatı hatalı. Lütfen YYYY-MM-DD formatında giriniz.";
   }
 
-  const isGunleri = isGunleriniHesapla(baslangicTarihi, bitisTarihi, cumartesiDahil);
-  if (isGunleri !== 20) {
-    return `Staj süresi tam olarak 20 iş günü olmalıdır. Şu an hesaplanan: ${isGunleri} iş günü.`;
+  // Tarihleri Date'e çevir
+  const startDate = new Date(baslangicTarihi);
+  const endDate = new Date(bitisTarihi);
+
+  // Hatalı tarih aralığı
+  if (endDate < startDate) {
+    return "Bitiş tarihi, başlangıç tarihinden önce olamaz.";
   }
 
-  return null; // Hata yoksa null dön
+  // Sadece dönem içi için kontrol yap
+  if (stajTuru === "donem") {
+    if (calismaGunleri.length < 3) {
+      return "Dönem içi stajda haftada en az 3 gün seçilmelidir.";
+    }
+
+    // Gün eşlemesi
+    const dayMap: { [key: number]: string } = {
+      0: "Pazar",
+      1: "Pazartesi",
+      2: "Salı",
+      3: "Çarşamba",
+      4: "Perşembe",
+      5: "Cuma",
+      6: "Cumartesi",
+    };
+
+    // İş günü sayacı
+    let workDayCount = 0;
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+      const dayName = dayMap[d.getDay()];
+      if (calismaGunleri.includes(dayName)) {
+        workDayCount++;
+      }
+    }
+
+    if (workDayCount !== 20) {
+      return `Dönem içi staj süresi tam olarak 20 iş günü olmalıdır. Seçilen günlere göre bu aralıkta ${workDayCount} iş günü var.`;
+    }
+  }
+
+  return null;
 }
