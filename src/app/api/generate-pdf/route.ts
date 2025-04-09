@@ -17,12 +17,15 @@ async function fillTemplate(templatePath: string, fullData: any) {
   const templateBuffer = await readFile(templatePath, "binary");
   const zip = new PizZip(templateBuffer);
 
+  console.log(fullData)
+
   const doc = new Docxtemplater(zip, {
     paragraphLoop: true,
     linebreaks: true,
-    // @ts-expect-error: Docxtemplater types don't know 'data', but it's valid
-    data: fullData,
+    
   });
+
+  doc.setData(fullData);
 
   try {
     doc.render();

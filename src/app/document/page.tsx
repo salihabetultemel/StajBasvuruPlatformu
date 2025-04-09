@@ -32,15 +32,15 @@ export default function DocumentPage() {
     isverenTelefon: "5562365623",
     faksNo: "1313131313131",
     stajUcreti: "3000",
-    firmaVergiNo: "4545454545",
+    firmaVergiNo: "142526524256",
     vergiDairesi: "ist ",
     firmaAdi: "akakaka",
     firmaAdres: "aldksdkşskdşa",
     firmaTelefon: "5556662323",
     firmaBanka: "aknank",
     firmaIBAN: "tr6464654646644",
-    stajYeritelefon: "5551234567",           // ✅ Eklendi
-    stajyerieposta: "ali.staj@firma.com",   // ✅ Eklendi
+    stajYeritelefon: "5551234567",          
+    stajyerieposta: "ali.staj@firma.com",  
   });
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -152,7 +152,7 @@ export default function DocumentPage() {
             </div>
           ))}
 
-        <label className="block mb-2 font-medium text-black flex items-center">
+        <label className=" mb-2 font-medium text-black flex items-center">
           <input
             type="checkbox"
             className="mr-2"
@@ -162,7 +162,7 @@ export default function DocumentPage() {
           Cumartesi çalışılıyor mu?
         </label>
 
-        <label className="block mb-2 font-medium text-black flex items-center">
+        <label className=" mb-2 font-medium text-black flex items-center">
           <input
             type="checkbox"
             className="mr-2"
