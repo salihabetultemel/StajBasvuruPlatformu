@@ -48,11 +48,7 @@ export default function DocumentPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-
-    if ((name === "tcKimlik" && value.length > 11) || (name === "ogrenciNo" && value.length > 12)) {
-      return;
-    }
-
+    if ((name === "tcKimlik" && value.length > 11) || (name === "ogrenciNo" && value.length > 12)) return;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -66,36 +62,28 @@ export default function DocumentPage() {
       5: "Cuma",
       6: "Cumartesi",
     };
-
     const startDate = new Date(start);
     const endDate = new Date(end);
     let count = 0;
-
     for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
       const dayName = dayMap[d.getDay()];
-      if (selectedDays.includes(dayName)) {
-        count++;
-      }
+      if (selectedDays.includes(dayName)) count++;
     }
-
     return count;
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const hataMesaji = validateForm(formData, cumartesiCalisiyorMu);
     if (hataMesaji) {
       setHata(hataMesaji);
       return;
     }
-
     if (stajTuru === "donem") {
       if (calismaGunleri.length < 3) {
         setHata("Dönem içi staj için haftada en az 3 gün seçilmelidir.");
         return;
       }
-
       const workDayCount = calculateWorkingDays(
         formData.baslangicTarihi,
         formData.bitisTarihi,
@@ -142,147 +130,148 @@ export default function DocumentPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gradient-to-r from-[#660066] via-[#191970] to-[#9370D8] text-gray-100 font-sans">
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-
-      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 shadow-lg">
+      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 ">
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
-      <h1 className="text-2xl font-bold mb-4 mt-20">Belge Oluştur</h1>
+      <div className="flex flex-col items-center mt-5 px-4">
+        <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-md">Belge Oluştur</h1>
 
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full">
-        <label className="block mb-2 font-medium text-black">Staj Türü:</label>
-        <select
-          name="stajTuru"
-          className="w-full p-2 border rounded mb-4 text-black"
-          value={stajTuru}
-          onChange={(e) => setStajTuru(e.target.value)}
-          required
-        >
-          <option value="">Seçiniz</option>
-          <option value="yaz">Yaz Stajı</option>
-          <option value="donem">Dönem İçi Staj</option>
-        </select>
+        <form onSubmit={handleSubmit} className="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
+          <label className="block mb-2 font-medium">Staj Türü:</label>
+          <select
+            name="stajTuru"
+            className="w-full p-2 border rounded-lg mb-4"
+            value={stajTuru}
+            onChange={(e) => setStajTuru(e.target.value)}
+            required
+          >
+            <option value="">Seçiniz</option>
+            <option value="yaz">Yaz Stajı</option>
+            <option value="donem">Dönem İçi Staj</option>
+          </select>
 
-        {stajTuru === "donem" && (
-          <div className="mb-4">
-            <label className="block font-medium text-black mb-2">
-              Haftalık Çalışma Günleri (en az 3 gün):
-            </label>
-            {["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"].map((gün) => (
-              <label key={gün} className="inline-flex items-center mr-4 text-black">
-                <input
-                  type="checkbox"
-                  className="mr-2"
-                  checked={calismaGunleri.includes(gün)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setCalismaGunleri([...calismaGunleri, gün]);
-                    } else {
-                      setCalismaGunleri(calismaGunleri.filter((g) => g !== gün));
-                    }
-                  }}
-                />
-                {gün}
+          {stajTuru === "donem" && (
+            <div className="mb-4">
+              <label className="block font-medium mb-2">
+                Haftalık Çalışma Günleri (en az 3 gün):
               </label>
-            ))}
-          </div>
-        )}
-
-        {Object.keys(formData)
-          .filter(
-            (key) =>
-              ![
-                "firmaVergiNo",
-                "vergiDairesi",
-                "firmaAdi",
-                "firmaAdres",
-                "firmaBanka",
-                "firmaIBAN",
-                "stajUcreti",
-                "firmaTelefon",
-              ].includes(key)
-          )
-          .map((key) => (
-            <div key={key} className="mb-4">
-              <label className="block font-medium text-black capitalize">
-                {key.replace(/([A-Z])/g, " $1")}
-              </label>
-              <input
-                type={
-                  key.toLowerCase().includes("tarihi")
-                    ? "date"
-                    : key.toLowerCase().includes("eposta")
-                    ? "email"
-                    : "text"
-                }
-                name={key}
-                value={formData[key as keyof typeof formData]}
-                onChange={handleChange}
-                className="w-full p-2 border rounded text-black"
-                required
-              />
+              {["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"].map((gün) => (
+                <label key={gün} className="inline-flex items-center mr-4 mb-1">
+                  <input
+                    type="checkbox"
+                    className="accent-purple-600 mr-2"
+                    checked={calismaGunleri.includes(gün)}
+                    onChange={(e) => {
+                      setCalismaGunleri(
+                        e.target.checked
+                          ? [...calismaGunleri, gün]
+                          : calismaGunleri.filter((g) => g !== gün)
+                      );
+                    }}
+                  />
+                  {gün}
+                </label>
+              ))}
             </div>
-          ))}
+          )}
 
-        <label className=" mb-2 font-medium text-black flex items-center">
-          <input
-            type="checkbox"
-            className="mr-2"
-            checked={cumartesiCalisiyorMu}
-            onChange={(e) => setCumartesiCalisiyorMu(e.target.checked)}
-          />
-          Cumartesi çalışılıyor mu?
-        </label>
-
-        <label className=" mb-2 font-medium text-black flex items-center">
-          <input
-            type="checkbox"
-            className="mr-2"
-            checked={ucretli}
-            onChange={(e) => setUcretli(e.target.checked)}
-          />
-          Ücretli
-        </label>
-
-        {ucretli && (
-          <div className="bg-gray-200 p-4 rounded mt-4">
-            <h2 className="text-lg font-bold text-black mb-2">EK-2 Formu Bilgileri</h2>
-            {[
-              { name: "stajUcreti", label: "Stajyer Ödenecek Ücret" },
-              { name: "firmaVergiNo", label: "Firma Vergi No" },
-              { name: "vergiDairesi", label: "Vergi Dairesi" },
-              { name: "firmaAdi", label: "Firma Adı" },
-              { name: "firmaAdres", label: "Firma Adresi" },
-              { name: "firmaTelefon", label: "Firma Telefon" },
-              { name: "firmaBanka", label: "Firma Banka / Şube" },
-              { name: "firmaIBAN", label: "Firma IBAN" },
-            ].map(({ name, label }) => (
-              <div key={name} className="mb-4">
-                <label className="block font-medium text-black">{label}:</label>
+          {Object.keys(formData)
+            .filter(
+              (key) =>
+                ![
+                  "firmaVergiNo",
+                  "vergiDairesi",
+                  "firmaAdi",
+                  "firmaAdres",
+                  "firmaBanka",
+                  "firmaIBAN",
+                  "stajUcreti",
+                  "firmaTelefon",
+                ].includes(key)
+            )
+            .map((key) => (
+              <div key={key} className="mb-4">
+                <label className="block font-medium capitalize mb-1">
+                  {key.replace(/([A-Z])/g, " $1")}
+                </label>
                 <input
-                  type="text"
-                  name={name}
-                  value={formData[name as keyof typeof formData] || ""}
+                  type={
+                    key.toLowerCase().includes("tarihi")
+                      ? "date"
+                      : key.toLowerCase().includes("eposta")
+                      ? "email"
+                      : "text"
+                  }
+                  name={key}
+                  value={formData[key as keyof typeof formData]}
                   onChange={handleChange}
-                  className="w-full p-2 border rounded text-black"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                   required
                 />
               </div>
             ))}
-          </div>
-        )}
 
-        {hata && <p className="text-red-500 mt-2">{hata}</p>}
+          <label className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              className="mr-2 accent-purple-600"
+              checked={cumartesiCalisiyorMu}
+              onChange={(e) => setCumartesiCalisiyorMu(e.target.checked)}
+            />
+            Cumartesi çalışılıyor mu?
+          </label>
 
-        <button
-          type="submit"
-          className="w-full bg-purple-700 text-white py-2 rounded mt-4 hover:bg-purple-800 transition"
-        >
-          PDF Oluştur
-        </button>
-      </form>
+          <label className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              className="mr-2 accent-purple-600"
+              checked={ucretli}
+              onChange={(e) => setUcretli(e.target.checked)}
+            />
+            Ücretli
+          </label>
+
+          {ucretli && (
+            <div className="bg-gray-100 p-4 rounded-xl mt-4">
+              <h2 className="text-lg font-semibold mb-2">EK-2 Formu Bilgileri</h2>
+              {[
+                { name: "stajUcreti", label: "Stajyer Ödenecek Ücret" },
+                { name: "firmaVergiNo", label: "Firma Vergi No" },
+                { name: "vergiDairesi", label: "Vergi Dairesi" },
+                { name: "firmaAdi", label: "Firma Adı" },
+                { name: "firmaAdres", label: "Firma Adresi" },
+                { name: "firmaTelefon", label: "Firma Telefon" },
+                { name: "firmaBanka", label: "Firma Banka / Şube" },
+                { name: "firmaIBAN", label: "Firma IBAN" },
+              ].map(({ name, label }) => (
+                <div key={name} className="mb-4">
+                  <label className="block font-medium">{label}:</label>
+                  <input
+                    type="text"
+                    name={name}
+                    value={formData[name as keyof typeof formData] || ""}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    required
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {hata && <p className="text-red-500 mt-4">{hata}</p>}
+
+          <button
+            type="submit"
+            className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 rounded-lg mt-6 transition"
+          >
+            PDF Oluştur
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

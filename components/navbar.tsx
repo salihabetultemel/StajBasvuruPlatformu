@@ -1,34 +1,34 @@
 import React from 'react';
 
 type NavbarProps = {
-  toggleSidebar: () => void; // Sidebar'ı açıp kapatma fonksiyonu
+  toggleSidebar: () => void;
   user?: {
     username: string;
-    profilePicture?: string; // Profil resmi opsiyonel
+    profilePicture?: string;
   };
 };
 
 const Navbar = ({ toggleSidebar, user }: NavbarProps) => {
-  const defaultProfilePicture = '/defaultprofilepicture.jpg'; // Varsayılan profil görseli
+  const defaultProfilePicture = '/defaultprofilepicture.jpg';
 
   return (
-    <div className="flex h-20 bg-gray-800 items-center justify-between px-10">
-      {/* Sidebar Tetikleme Butonu */}
+    <div className="flex h-20 items-center justify-between px-10 bg-gray-800">
+      {/* Sidebar Butonu */}
       <button
-        className="p-2 bg-[#364193] text-white rounded-full shadow-lg focus:outline-none"
+        className="p-2 text-white rounded-full focus:outline-none"
         onClick={toggleSidebar}
       >
         <span className="block w-6 h-1 bg-white mb-1"></span>
         <span className="block w-6 h-1 bg-white mb-1"></span>
-        <span className="block w-6 h-1 bg-white "></span>
+        <span className="block w-6 h-1 bg-white"></span>
       </button>
 
       {/* Başlık */}
-      <div className="text-lg text-white font-semibold absolute left-1/2 transform -translate-x-1/2">
+      <div className="text-lg text-white font-bold absolute left-1/2 transform -translate-x-1/2">
         STAJ BAŞVURU PLATFORMU
       </div>
 
-      {/* Sağ Taraf: Profil Alanı */}
+      {/* Profil */}
       <div className="absolute right-8 flex items-center space-x-4">
         {user ? (
           <>

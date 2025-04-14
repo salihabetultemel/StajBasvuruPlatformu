@@ -35,7 +35,7 @@ export default function Home() {
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Navbar */}
-      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 shadow-lg">
+      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 ">
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
