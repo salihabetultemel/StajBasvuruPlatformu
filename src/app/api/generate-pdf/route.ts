@@ -6,24 +6,22 @@ import { readFile } from "fs/promises";
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
 
-// Tarih formatlama fonksiyonu
 const formatDate = (isoDate: string) => {
   if (!isoDate) return "";
   const [year, month, day] = isoDate.split("-");
   return `${day}.${month}.${year}`;
 };
 
-// Şablon doldurma fonksiyonu (setData + render)
 async function fillTemplate(templatePath: string, fullData: any) {
   const templateBuffer = await readFile(templatePath, "binary");
   const zip = new PizZip(templateBuffer);
-  const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
-
-  // ✅ Doğru kullanım: eski ve garantili olan
-  doc.setData(fullData);
+  const doc = new Docxtemplater(zip, {
+    paragraphLoop: true,
+    linebreaks: true,
+  });
 
   try {
-    doc.render();
+    doc.render({ data: fullData }); // ✅ Yeni sürümde sadece bu kullanılır
   } catch (error: any) {
     console.error("❌ Şablon doldurma hatası:", error);
     throw new Error("Şablon doldurulurken hata oluştu.");
@@ -35,7 +33,6 @@ async function fillTemplate(templatePath: string, fullData: any) {
   return outputPath;
 }
 
-// Ana POST handler
 export async function POST(req: Request) {
   try {
     const data = await req.json();
@@ -75,9 +72,8 @@ export async function POST(req: Request) {
       cumartesiCalisiyorMu,
     };
 
-    // Dönem içi staj ise çalışma günlerini işaretle
     if (stajTuru === "donem") {
-      const gunMap: { [key: string]: string } = {
+      const gunMap: Record<string, string> = {
         Pazartesi: "gun_pzt",
         Salı: "gun_sal",
         Çarşamba: "gun_car",
@@ -85,16 +81,12 @@ export async function POST(req: Request) {
         Cuma: "gun_cum",
         Cumartesi: "gun_cmt",
       };
-
-      Object.entries(gunMap).forEach(([gun, key]) => {
+      for (const [gun, key] of Object.entries(gunMap)) {
         fullData[key] = calismaGunleri.includes(gun) ? "X" : "";
-      });
+      }
     }
 
     const documentsDir = path.join(process.cwd(), "public/documents");
-    const outputDir = path.join(process.cwd(), "public/output");
-    if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
-
     const templateName = stajTuru === "yaz" ? "staj_yaz.docx" : "staj_donem.docx";
     const templatePath = path.join(documentsDir, templateName);
     if (!existsSync(templatePath)) throw new Error(`Şablon dosyası bulunamadı: ${templateName}`);
@@ -109,7 +101,7 @@ export async function POST(req: Request) {
       }
     }
 
-    const pdfPaths = [];
+    const pdfPaths: string[] = [];
     for (const docPath of filledDocs) {
       await convert(docPath);
       pdfPaths.push(docPath.replace(".docx", ".pdf"));
