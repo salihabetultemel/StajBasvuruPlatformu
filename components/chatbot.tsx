@@ -1,33 +1,38 @@
 "use client";
 import { useState } from "react";
 
-// Mesajlar için bir tür tanımlıyoruz
 type Message = {
   sender: "user" | "bot";
   text: string;
 };
 
 export default function Chatbot() {
-  const [messages, setMessages] = useState<Message[]>([]); // Mesajları tutar
-  const [userInput, setUserInput] = useState<string>(""); // Kullanıcı girişini tutar
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [userInput, setUserInput] = useState<string>("");
 
-  const handleSendMessage = () => {
-    if (userInput.trim() === "") return; // Boş mesaj göndermeyi engelle
+  const handleSendMessage = async () => {
+    if (userInput.trim() === "") return;
 
-    // Kullanıcı mesajını ekle
     const userMessage: Message = { sender: "user", text: userInput };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
+    setUserInput("");
 
-    // Botun cevap vermesi (şimdilik sabit bir cevap)
-    const botMessage: Message = {
-      sender: "bot",
-      text: "Merhaba! Size nasıl yardımcı olabilirim?",
-    };
-    setTimeout(() => {
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
-    }, 1000); // Bot cevabını 1 saniye gecikmeyle göster
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        body: userInput,
+      });
 
-    setUserInput(""); // Kullanıcı girişini sıfırla
+      const data = await res.json();
+      const botMessage: Message = { sender: "bot", text: data.reply };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      const botMessage: Message = {
+        sender: "bot",
+        text: "Bir hata oluştu. Lütfen tekrar deneyin.",
+      };
+      setMessages((prev) => [...prev, botMessage]);
+    }
   };
 
   return (
@@ -63,6 +68,7 @@ export default function Chatbot() {
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Mesajınızı yazın..."
             className="flex-1 border border-gray-300 rounded-l-md p-2 focus:outline-none"
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
           />
           <button
             onClick={handleSendMessage}

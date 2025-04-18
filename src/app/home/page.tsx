@@ -1,36 +1,54 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "../../../components/navbar";
 import SidebarMenu from "../../../components/sidebarmenu";
 
-
 export default function Home() {
   const router = useRouter();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar açık/kapalı durumu
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; text: string }[]>([]);
   const [input, setInput] = useState("");
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
-    setMessages([...messages, { sender: "user", text: input }]);
+
+    const userMessage = { sender: "user", text: input } as const;
+    setMessages((prev) => [...prev, userMessage]);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        body: input,
+      });
+
+      const data = await res.json();
+      const botMessage = { sender: "bot", text: data.reply } as const;
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      const botMessage = {
+        sender: "bot",
+        text: "Bir hata oluştu. Lütfen tekrar deneyin.",
+      } as const;
+      setMessages((prev) => [...prev, botMessage]);
+    }
+
     setInput("");
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: "Bu, chatbot tarafından üretilen bir örnek yanıttır." },
-      ]);
-    }, 1000);
   };
 
   return (
     <div className="bg-gradient-to-r from-[#660066] via-[#191970] to-[#9370D8] text-white h-screen w-screen flex flex-col">
-
       {/* Sidebar Menu */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
@@ -45,30 +63,29 @@ export default function Home() {
         style={{ minHeight: "calc(100vh - 64px)" }}
       >
         {/* Sohbet Alanı */}
-        <div className="flex-1 flex flex-col items-center justify-center relative space-y-4 max-h-[400px] w-full px-4 bg-gray-700 bg-opacity-50 text-white border border-gray-600 rounded-md">
-          {/* Placeholder Mesaj */}
+        <div className="flex-1 flex flex-col space-y-4 h-[400px] w-full px-4 overflow-y-auto bg-gray-700 bg-opacity-50 text-white border border-gray-600 rounded-md scroll-smooth">
           {!messages.length && (
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-400 text-center">
+            <div className="m-auto text-gray-400 text-center">
               <p className="text-lg font-semibold">Merhaba! Size nasıl yardımcı olabilirim?</p>
             </div>
           )}
-          {/* Mesajlar */}
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"
-                } w-full`}
+              className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"} w-full`}
             >
               <div
-                className={`max-w-sm px-4 py-2 rounded-lg shadow-md ${message.sender === "user"
-                  ? "bg-blue-600 text-white border border-blue-500 hover:bg-blue-500 transition-all"
-                  : "bg-purple-600 text-white border border-purple-500 hover:bg-purple-500 transition-all"
-                  }`}
+                className={`max-w-sm px-4 py-2 rounded-lg shadow-md ${
+                  message.sender === "user"
+                    ? "bg-blue-600 text-white border border-blue-500 hover:bg-blue-500 transition-all"
+                    : "bg-purple-600 text-white border border-purple-500 hover:bg-purple-500 transition-all"
+                }`}
               >
                 {message.text}
               </div>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
 
         {/* Mesaj Gönderme ve Butonlar */}
@@ -95,18 +112,17 @@ export default function Home() {
             <div className="container bg-gray-700 p-4 flex justify-center space-x-6 border border-gray-600 rounded-md">
               <button
                 className="px-6 py-3 bg-[#660066] text-white rounded-md shadow-md hover:bg-purple-800 transition-all"
-                onClick={() => router.replace("/document")} // push yerine replace kullanıldı
+                onClick={() => router.replace("/document")}
               >
                 Belge Oluştur
               </button>
               <button
-                className="px-6 py-3 bg-[#191970] text-white rounded-md shadow-md  hover:bg-blue-800 transition-all"
+                className="px-6 py-3 bg-[#191970] text-white rounded-md shadow-md hover:bg-blue-800 transition-all"
               >
                 Belge İncele
               </button>
             </div>
           </div>
-
         </footer>
       </div>
     </div>
