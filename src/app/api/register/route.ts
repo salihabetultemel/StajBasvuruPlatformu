@@ -4,20 +4,26 @@ import pool from "../../../../lib/db";
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email, password, ogrenciNo, adSoyad } = await req.json();
 
-    // Kullanıcının zaten kayıtlı olup olmadığını kontrol et
-    const existingUser = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    // Alan kontrolleri
+    if (!ogrenciNo || ogrenciNo.length !== 12) {
+      return NextResponse.json({ message: "Okul numarası 12 haneli olmalıdır." }, { status: 400 });
+    }
 
+    const normalizedEmail = email.toLowerCase();
+
+    const existingUser = await pool.query("SELECT * FROM users WHERE email = $1", [normalizedEmail]);
     if (existingUser.rows.length > 0) {
       return NextResponse.json({ message: "Bu e-posta zaten kayıtlı." }, { status: 400 });
     }
 
-    // Şifreyi hashle
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Kullanıcıyı veritabanına ekle
-    await pool.query("INSERT INTO users (email, password) VALUES ($1, $2)", [email, hashedPassword]);
+    await pool.query(
+      "INSERT INTO users (email, password, ogrenci_no, ad_soyad) VALUES ($1, $2, $3, $4)",
+      [normalizedEmail, hashedPassword, ogrenciNo, adSoyad]
+    );
 
     return NextResponse.json({ message: "Kayıt başarılı!" }, { status: 201 });
 

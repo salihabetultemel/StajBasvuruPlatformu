@@ -1,51 +1,45 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import { useSession } from "next-auth/react";
+import { Menu } from "lucide-react";
 
 type NavbarProps = {
   toggleSidebar: () => void;
-  user?: {
-    username: string;
-    profilePicture?: string;
-  };
 };
 
-const Navbar = ({ toggleSidebar, user }: NavbarProps) => {
-  const defaultProfilePicture = '/defaultprofilepicture.jpg';
+const Navbar = ({ toggleSidebar }: NavbarProps) => {
+  const { data: session } = useSession();
+  const defaultProfilePicture = "/defaultprofilepicture.jpg";
+
+  const username = session?.user?.name || "Profil";
+  const profilePicture = session?.user?.image || defaultProfilePicture;
 
   return (
-    <div className="flex h-20 items-center justify-between px-10 bg-gray-800">
-      {/* Sidebar Butonu */}
+    <div className="flex h-20 items-center justify-between px-6 md:px-10 bg-[#0f172a] shadow-lg">
+      {/* Sidebar Toggle */}
       <button
-        className="p-2 text-white rounded-full focus:outline-none"
+        className="p-3 bg-[#1e293b] hover:bg-[#334155] text-white rounded-lg transition flex items-center gap-2"
         onClick={toggleSidebar}
       >
-        <span className="block w-6 h-1 bg-white mb-1"></span>
-        <span className="block w-6 h-1 bg-white mb-1"></span>
-        <span className="block w-6 h-1 bg-white"></span>
+        <Menu className="w-5 h-5" />
       </button>
 
-      {/* Başlık */}
-      <div className="text-lg text-white font-bold absolute left-1/2 transform -translate-x-1/2">
+      {/* Logo Title */}
+      <div className="text-lg text-white font-semibold tracking-wide absolute left-1/2 transform -translate-x-1/2">
         STAJ BAŞVURU PLATFORMU
       </div>
 
-      {/* Profil */}
-      <div className="absolute right-8 flex items-center space-x-4">
-        {user ? (
-          <>
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-white">
-              <img
-                src={user.profilePicture || defaultProfilePicture}
-                alt="Profil"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <span className="text-white font-medium">{user.username}</span>
-          </>
-        ) : (
-          <a href="/login" className="text-white font-medium hover:text-blue-300">
-            Profil
-          </a>
-        )}
+      {/* Profile */}
+      <div className="absolute right-6 md:right-10 flex items-center space-x-3">
+        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-400 shadow-md">
+          <img
+            src={profilePicture}
+            alt="Profil"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <span className="text-white font-medium hidden md:block">{username}</span>
       </div>
     </div>
   );

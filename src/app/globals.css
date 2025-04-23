@@ -14,8 +14,38 @@
   }
 }
 
+html,
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #0f172a;
+  /* daha koyu base bg */
+
+
+}
+
+/* Scrollbar özelleştirmesi */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  /* gri tonu */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+  /* daha açık gri */
 }
