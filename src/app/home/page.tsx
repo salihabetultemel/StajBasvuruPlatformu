@@ -35,7 +35,7 @@ export default function Home() {
       const data = await res.json();
       const botMessage = { sender: "bot", text: data.reply } as const;
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
+    } catch (_) {
       const botMessage = {
         sender: "bot",
         text: "Bir hata oluştu. Lütfen tekrar deneyin.",

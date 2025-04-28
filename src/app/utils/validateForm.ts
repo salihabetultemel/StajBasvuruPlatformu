@@ -1,7 +1,10 @@
 export function validateForm(
-  formData: any,
-  cumartesiDahil: boolean
+  formData: unknown
 ): string | null {
+  if (typeof formData !== "object" || formData === null) {
+    return "Form verisi hatalı.";
+  }
+
   const {
     tcKimlik,
     ogrenciNo,
@@ -11,7 +14,16 @@ export function validateForm(
     bitisTarihi,
     stajTuru,
     calismaGunleri = [],
-  } = formData;
+  } = formData as {
+    tcKimlik: string;
+    ogrenciNo: string;
+    eposta: string;
+    telefon: string;
+    baslangicTarihi: string;
+    bitisTarihi: string;
+    stajTuru: string;
+    calismaGunleri?: string[];
+  };
 
   // TC Kimlik No doğrulama
   if (tcKimlik.length !== 11 || !/^\d+$/.test(tcKimlik)) {
@@ -33,27 +45,23 @@ export function validateForm(
     return "Telefon numarası 10 haneli olmalıdır (örn: 5551234567).";
   }
 
-  // Tarih formatı
+  // Tarih formatı kontrolü
   if (!/^\d{4}-\d{2}-\d{2}$/.test(baslangicTarihi) || !/^\d{4}-\d{2}-\d{2}$/.test(bitisTarihi)) {
     return "Tarih formatı hatalı. Lütfen YYYY-MM-DD formatında giriniz.";
   }
 
-  // Tarihleri Date'e çevir
   const startDate = new Date(baslangicTarihi);
   const endDate = new Date(bitisTarihi);
 
-  // Hatalı tarih aralığı
   if (endDate < startDate) {
     return "Bitiş tarihi, başlangıç tarihinden önce olamaz.";
   }
 
-  // Sadece dönem içi için kontrol yap
   if (stajTuru === "donem") {
     if (calismaGunleri.length < 3) {
       return "Dönem içi stajda haftada en az 3 gün seçilmelidir.";
     }
 
-    // Gün eşlemesi
     const dayMap: { [key: number]: string } = {
       0: "Pazar",
       1: "Pazartesi",
@@ -64,7 +72,6 @@ export function validateForm(
       6: "Cumartesi",
     };
 
-    // İş günü sayacı
     let workDayCount = 0;
     for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
       const dayName = dayMap[d.getDay()];

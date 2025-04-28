@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { existsSync, writeFileSync } from "fs"; // ✅ mkdirSync'ı kaldırdım
 import path from "path";
 import convert from "docx2pdf";
 import { readFile } from "fs/promises";
@@ -12,7 +12,7 @@ const formatDate = (isoDate: string) => {
   return `${day}.${month}.${year}`;
 };
 
-async function fillTemplate(templatePath: string, fullData: any) {
+async function fillTemplate(templatePath: string, fullData: Record<string, unknown>) {
   const templateBuffer = await readFile(templatePath, "binary");
   const zip = new PizZip(templateBuffer);
   const doc = new Docxtemplater(zip, {
@@ -21,8 +21,8 @@ async function fillTemplate(templatePath: string, fullData: any) {
   });
 
   try {
-    doc.render({ data: fullData }); // ✅ Yeni sürümde sadece bu kullanılır
-  } catch (error: any) {
+    doc.render({ data: fullData });
+  } catch (error: unknown) {
     console.error("❌ Şablon doldurma hatası:", error);
     throw new Error("Şablon doldurulurken hata oluştu.");
   }
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     const data = await req.json();
     const { stajTuru, ucretli, cumartesiCalisiyorMu, calismaGunleri = [], ...formData } = data;
 
-    const fullData: any = {
+    const fullData: Record<string, unknown> = {
       adSoyad: formData.adSoyad || "",
       tcKimlik: formData.tcKimlik || "",
       dogumTarihi: formatDate(formData.dogumTarihi),
@@ -117,8 +117,9 @@ export async function POST(req: Request) {
         "Content-Disposition": 'attachment; filename="staj_belgesi.pdf"',
       },
     });
-  } catch (error: any) {
-    console.error("❌ Hata:", error.message);
-    return new NextResponse(error.message || "Hata oluştu", { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Hata oluştu";
+    console.error("❌ Hata:", message);
+    return new NextResponse(message, { status: 500 });
   }
 }

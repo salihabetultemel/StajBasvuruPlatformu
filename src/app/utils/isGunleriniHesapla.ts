@@ -24,7 +24,7 @@ export function isGunleriniHesapla(
   cumartesiDahil: boolean
 ): number {
   let startDate = new Date(baslangicTarihi);
-  let endDate = new Date(bitisTarihi);
+  const endDate = new Date(bitisTarihi); // 🔥 sadece burada let → const oldu
   let isGunleri = 0;
 
   while (startDate <= endDate) {
