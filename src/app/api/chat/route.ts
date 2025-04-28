@@ -5,6 +5,13 @@ import { promises as fs } from 'fs';
 const HF_API_URL = "https://api-inference.huggingface.co/models/impira/layoutlm-document-qa";
 const HF_API_KEY = process.env.HUGGINGFACE_API_KEY!;
 
+// 👇 Yeni Type tanımı
+type FAQItem = {
+  question: string;
+  answer: string;
+  tags?: string[];
+};
+
 export async function POST(req: Request) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 saniyelik timeout
@@ -17,10 +24,10 @@ export async function POST(req: Request) {
 
     const normalizedMessage = userMessage.toLowerCase();
 
-    // Eşleşme kontrolü
-    const matchedItem = faqData.find((item: any) => {
+    // 👇 Burada tip cast yapıyoruz
+    const matchedItem = (faqData as FAQItem[]).find((item) => {
       const questionMatch = item.question.toLowerCase().includes(normalizedMessage);
-      const tagMatch = item.tags?.some((tag: string) =>
+      const tagMatch = item.tags?.some((tag) =>
         normalizedMessage.includes(tag.toLowerCase())
       );
       return questionMatch || tagMatch;
@@ -41,7 +48,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ inputs: prompt }),
-      signal: controller.signal, // Timeout sinyali ekleniyor
+      signal: controller.signal, // Timeout sinyali
     });
 
     clearTimeout(timeoutId); // Timeout işlemini temizle
@@ -53,8 +60,8 @@ export async function POST(req: Request) {
       result?.[0]?.generated_text?.split("Yeni Cevap:")[1]?.trim() || baseAnswer;
 
     return NextResponse.json({ reply: generatedText });
-  } catch (error) {
-    console.error("Chat API error:", error);
+  } catch {
+    console.error("Chat API error"); // artık catch içinde error parametresi vermiyoruz
     return NextResponse.json(
       { reply: "Bir hata oluştu. Lütfen tekrar deneyin." },
       { status: 500 }

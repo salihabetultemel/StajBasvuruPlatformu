@@ -26,7 +26,7 @@ export default function Chatbot() {
       const data = await res.json();
       const botMessage: Message = { sender: "bot", text: data.reply };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (_) { // 🔥 Burayı düzelttim
+    } catch { // 🔥 Burayı düzelttim
       const botMessage: Message = {
         sender: "bot",
         text: "Bir hata oluştu. Lütfen tekrar deneyin.",

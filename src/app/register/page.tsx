@@ -32,7 +32,7 @@ export default function Register() {
       } else {
         setError(data.message);
       }
-    } catch (error) {
+    } catch {
       setError("Bir hata oluştu, lütfen tekrar deneyin.");
     }
   };

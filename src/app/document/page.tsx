@@ -34,7 +34,7 @@ export default function DocumentPage() {
     faksNo: "1313131313131",
     stajUcreti: "3000",
     firmaVergiNo: "142526524256",
-    vergiDairesi: "ist ",
+    vergiDairesi: "ist",
     firmaAdi: "akakaka",
     firmaAdres: "aldksdkşskdşa",
     firmaTelefon: "5556662323",
@@ -74,7 +74,7 @@ export default function DocumentPage() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const hataMesaji = validateForm(formData, cumartesiCalisiyorMu);
+    const hataMesaji = validateForm(formData);
     if (hataMesaji) {
       setHata(hataMesaji);
       return;
@@ -123,16 +123,16 @@ export default function DocumentPage() {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-    } catch (error: any) {
-      console.error("PDF oluşturma hatası:", error.message);
-      setHata(`PDF oluşturulamadı: ${error.message}`);
+    } catch {
+      console.error("PDF oluşturma hatası");
+      setHata(`PDF oluşturulamadı`);
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#660066] via-[#191970] to-[#9370D8] text-gray-100 font-sans">
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50 ">
+      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50">
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
