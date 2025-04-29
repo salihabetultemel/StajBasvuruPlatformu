@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route"; // 🔁 doğru import
+import { authOptions } from "../../../../lib/authOptions"; // ✅ doğru relative import
+
 import pool from "../../../../lib/db";
 
 export async function GET() {
