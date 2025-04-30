@@ -1,3 +1,4 @@
+// components/navbar.tsx
 "use client";
 
 import React from "react";
@@ -16,7 +17,11 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
   const profilePicture = session?.user?.image || defaultProfilePicture;
 
   return (
-    <div className="flex h-20 items-center justify-between px-6 md:px-10 bg-[#0f172a] shadow-lg">
+    // Navbar'ın fixed, tam genişlikte, en üstte ve z-index'i yüksek olduğundan emin ol
+    <div className="
+      fixed top-0 left-0 w-full z-50  {/* <-- BU SATIR ÖNEMLİ */}
+      flex h-20 items-center justify-between px-6 md:px-10 bg-[#0f172a] shadow-lg {/* <-- h-20 ÖNEMLİ */}
+    ">
       {/* Sidebar Toggle */}
       <button
         className="p-3 bg-[#1e293b] hover:bg-[#334155] text-white rounded-lg transition flex items-center gap-2"
