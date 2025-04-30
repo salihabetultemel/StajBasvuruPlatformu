@@ -74,9 +74,6 @@ export default function ProfilePage() {
     <Navbar toggleSidebar={toggleSidebar} />
     <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
-
-   
-    
     <div className="min-h-screen bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] pt-24 px-4">
       
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-xl text-black space-y-8">
