@@ -6,11 +6,11 @@ import { User, Info, LogOut, Sun, Moon, MessageSquare } from "lucide-react";
 
 export type SidebarMenuProps = {
   isOpen: boolean;
-  toggleSidebar: () => void; // ⬅ props olarak tanımlı kalıyor
+  toggleSidebar: () => void; // diğer sayfalar uyumlu kalabilsin diye burada bırakıyoruz
 };
 
 const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
-  const { isOpen } = props; // ⬅ sadece isOpen'ı kullanıyoruz, toggleSidebar yok
+  const { isOpen } = props; // sadece isOpen kullanılıyor, toggleSidebar kullanılmadığı için destructure edilmiyor
 
   const [isDark, setIsDark] = useState(false);
 
@@ -64,9 +64,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
         </ul>
       </div>
 
-      {/* Alt Kısım */}
       <div className="px-4 py-4 space-y-4">
-        {/* Tema Toggle */}
         <div className="flex flex-col items-center pt-2">
           <button
             onClick={toggleTheme}
