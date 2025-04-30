@@ -27,7 +27,8 @@ export default function FeedbackPage() {
 
   return (
     // Ana kapsayıcı
-    <div className="min-h-screen font-sans bg-gray-100 text-gray-800">
+    <div className="min-h-screen font-sans bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] text-gray-800">
+
 
       {/* Sidebar: Her zaman render edilir, görünürlüğü `isOpen` ile kontrol edilir */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />

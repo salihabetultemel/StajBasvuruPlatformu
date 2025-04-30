@@ -16,8 +16,6 @@ export default function AboutPage() {
   };
 
   // Genel stil sınıfları (Tailwind)
-  const primaryBg = "bg-gray-100";
-  const primaryText = "text-gray-800";
   const cardBg = "bg-white";
   const accentColor = "text-violet-700";
   const headingColor = "text-gray-900"; // Ana başlıklar için
@@ -25,7 +23,8 @@ export default function AboutPage() {
 
   return (
     // Ana kapsayıcı
-    <div className={`min-h-screen font-sans ${primaryBg} ${primaryText}`}>
+    <div className={`min-h-screen font-sans bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] text-gray-800`}>
+
 
       {/* Sidebar: Her zaman render edilir, görünürlüğü `isOpen` ile kontrol edilir */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />

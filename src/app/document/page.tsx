@@ -130,7 +130,7 @@ export default function DocumentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#660066] via-[#191970] to-[#9370D8] text-gray-100 font-sans">
+    <div className="min-h-screen bg-gradient-to-r  from-[#1f1c2c] via-[#302b63] to-[#24243e] text-gray-800 font-sans">
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50">
         <Navbar toggleSidebar={toggleSidebar} />

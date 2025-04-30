@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Navbar from "../../../components/navbar"; // ✅ Eklendi
+import SidebarMenu from "../../../components/sidebarmenu"; // ✅ Eklendi
+
 
 type UserProfile = {
   username: string;
@@ -19,6 +22,10 @@ export default function ProfilePage() {
   const [bolum, setBolum] = useState("");
   const [sinif, setSinif] = useState("");
   const [progress, setProgress] = useState(0);
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
 
   useEffect(() => {
     fetch("/api/user")
@@ -63,7 +70,15 @@ export default function ProfilePage() {
   const profilePicture = user.profilResmi || "/defaultprofilepicture.jpg";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] py-12 px-4">
+    <>
+    <Navbar toggleSidebar={toggleSidebar} />
+    <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+
+
+   
+    
+    <div className="min-h-screen bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] pt-24 px-4">
+      
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-xl text-black space-y-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-2">Profil Bilgilerim</h1>
@@ -216,5 +231,6 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
+     </>
   );
 }
