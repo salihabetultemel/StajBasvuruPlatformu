@@ -6,10 +6,12 @@ import { User, Info, LogOut, Sun, Moon, MessageSquare } from "lucide-react";
 
 export type SidebarMenuProps = {
   isOpen: boolean;
-  toggleSidebar: () => void;
+  toggleSidebar: () => void; // ⬅ props olarak tanımlı kalıyor
 };
 
-const SidebarMenu: React.FC<SidebarMenuProps> = ({ isOpen, toggleSidebar }) => {
+const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
+  const { isOpen } = props; // ⬅ sadece isOpen'ı kullanıyoruz, toggleSidebar yok
+
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {

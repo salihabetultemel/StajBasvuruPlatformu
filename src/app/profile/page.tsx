@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type UserProfile = {
   username: string;
@@ -62,21 +63,23 @@ export default function ProfilePage() {
   const profilePicture = user.profilResmi || "/defaultprofilepicture.jpg";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e]
- py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] py-12 px-4">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-xl text-black space-y-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-2">Profil Bilgilerim</h1>
           <p className="text-sm text-gray-500">Aşağıdaki bilgileri güncelleyebilirsiniz.</p>
         </div>
 
-        {/* Profil Fotoğrafı + Yükleme */}
         <div className="flex flex-col items-center gap-4">
-          <img
-            src={profilePicture}
-            alt="Profil"
-            className="w-28 h-28 rounded-full object-cover border-4 border-blue-200 shadow-md"
-          />
+          <div className="w-28 h-28 relative rounded-full overflow-hidden border-4 border-blue-200 shadow-md">
+            <Image
+              src={profilePicture}
+              alt="Profil"
+              fill
+              className="object-cover rounded-full"
+            />
+          </div>
+
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -177,7 +180,6 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* Kaydet ve Yüzdelik */}
         <div className="flex justify-between items-center">
           <button
             onClick={handleSave}
@@ -187,7 +189,6 @@ export default function ProfilePage() {
           </button>
         </div>
 
-        {/* Progress Bar */}
         <div className="w-full mt-6">
           <div className="flex justify-between items-center mb-1 px-1">
             <span className="text-sm font-medium text-gray-700">Tamamlanma Durumu</span>
