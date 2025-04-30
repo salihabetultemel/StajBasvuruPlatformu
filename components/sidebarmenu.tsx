@@ -19,12 +19,6 @@ const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
     setIsDark(current === "dark");
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = isDark ? "light" : "dark";
-    localStorage.setItem("theme", newTheme);
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-  };
 
   return (
     <div
