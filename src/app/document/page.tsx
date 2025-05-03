@@ -138,20 +138,20 @@ export default function DocumentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r  from-[#1f1c2c] via-[#302b63] to-[#24243e] text-gray-800 font-sans">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans">
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50">
+      <div className="bg-[var(--card-bg)] bg-opacity-95 fixed top-0 left-0 w-full z-50 border-b border-[var(--border-color)]">
         <Navbar toggleSidebar={toggleSidebar} />
       </div>
 
       <div className="flex flex-col items-center mt-5 px-4">
-        <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-md">Belge Oluştur</h1>
+        <h1 className="text-4xl font-extrabold mb-6 text-[var(--foreground)] drop-shadow-md">Belge Oluştur</h1>
 
-        <form onSubmit={handleSubmit} className="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
+        <form onSubmit={handleSubmit} className="bg-[var(--card-bg)] text-[var(--card-text)] p-8 rounded-2xl shadow-2xl w-full max-w-2xl border border-[var(--border-color)]">
           <label className="block mb-2 font-medium">Staj Türü:</label>
           <select
             name="stajTuru"
-            className="w-full p-2 border rounded-lg mb-4"
+            className="w-full p-2 border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-lg mb-4"
             value={stajTuru}
             onChange={(e) => setStajTuru(e.target.value)}
             required
@@ -186,7 +186,6 @@ export default function DocumentPage() {
             </div>
           )}
 
-          {/* Form Alanları */}
           {Object.keys(formData)
             .filter(
               (key) =>
@@ -217,7 +216,7 @@ export default function DocumentPage() {
                   name={key}
                   value={formData[key as keyof typeof formData]}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full px-4 py-2 border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                   required
                 />
               </div>
@@ -244,9 +243,9 @@ export default function DocumentPage() {
           </label>
 
           {ucretli && (
-            <div className="bg-gray-100 p-4 rounded-xl mt-4">
+            <div className="bg-[var(--background)] p-4 rounded-xl mt-4 border border-[var(--border-color)]">
               <h2 className="text-lg font-semibold mb-2">EK-2 Formu Bilgileri</h2>
-              {[ 
+              {[
                 { name: "stajUcreti", label: "Stajyer Ödenecek Ücret" },
                 { name: "firmaVergiNo", label: "Firma Vergi No" },
                 { name: "vergiDairesi", label: "Vergi Dairesi" },
@@ -263,7 +262,7 @@ export default function DocumentPage() {
                     name={name}
                     value={formData[name as keyof typeof formData] || ""}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    className="w-full px-4 py-2 border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                     required
                   />
                 </div>

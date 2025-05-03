@@ -2,31 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Açık mod (default) */
 :root {
-  --background: #ffffff;
+  --background: linear-gradient(to bottom right, #f0f4f8, #d9e4f5);
   --foreground: #171717;
+
+  --card-bg: #ffffff;
+  --card-text: #1f2937;
+  --border-color: #d1d5db;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Karanlık mod */
+.dark {
+  --background: linear-gradient(to bottom right, #1f1c2c, #302b63, #24243e);
+  --foreground: #ededed;
+
+  --card-bg: #1e293b;
+  --card-text: #ffffff;
+  --border-color: #334155;
 }
 
 html,
 body {
-  color: var(--foreground);
   background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 
   height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #0f172a;
-  /* daha koyu base bg */
 
-
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Scrollbar özelleştirmesi */
@@ -41,11 +47,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #4b5563;
-  /* gri tonu */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
-  /* daha açık gri */
 }

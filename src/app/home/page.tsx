@@ -35,7 +35,7 @@ export default function Home() {
       const data = await res.json();
       const botMessage = { sender: "bot", text: data.reply } as const;
       setMessages((prev) => [...prev, botMessage]);
-    } catch  {
+    } catch {
       const botMessage = {
         sender: "bot",
         text: "Bir hata oluştu. Lütfen tekrar deneyin.",
@@ -47,24 +47,25 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#1f1c2c] via-[#302b63] to-[#24243e] text-white min-h-screen flex">
+    <div className="bg-[var(--background)] text-[var(--foreground)] min-h-screen flex">
       {/* Sidebar */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Navbar */}
-        <div className="bg-gray-900 bg-opacity-95 fixed top-0 left-0 w-full z-50">
+        <div className="bg-[var(--card-bg)] bg-opacity-90 fixed top-0 left-0 w-full z-50 border-b border-[var(--border-color)]">
           <Navbar toggleSidebar={toggleSidebar} />
         </div>
 
         {/* Chat Container */}
         <div className="flex flex-col items-center justify-start w-full max-w-5xl mx-auto mt-20 px-6 pb-10 pt-6 z-0">
-          <div className="w-full flex-1 bg-gray-800 bg-opacity-90 rounded-lg shadow-2xl border border-gray-600 p-6">
+          <div className="w-full flex-1 bg-[var(--card-bg)] text-[var(--card-text)] bg-opacity-90 rounded-lg shadow-2xl border border-[var(--border-color)] p-6">
+            
             {/* Chat Area */}
-            <div className="flex-1 flex flex-col space-y-4 h-[400px] w-full px-4 overflow-y-auto bg-gray-700 bg-opacity-50 text-white border border-gray-600 rounded-md scroll-smooth">
+            <div className="flex-1 flex flex-col space-y-4 h-[400px] w-full px-4 overflow-y-auto bg-[var(--card-bg)] bg-opacity-70 text-[var(--card-text)] border border-[var(--border-color)] rounded-md scroll-smooth">
               {!messages.length && (
-                <div className="m-auto text-gray-400 text-center">
+                <div className="m-auto text-[var(--border-color)] text-center">
                   <p className="text-lg font-semibold">Merhaba! Size nasıl yardımcı olabilirim?</p>
                 </div>
               )}
@@ -91,7 +92,7 @@ export default function Home() {
             <div className="mt-6 flex items-center space-x-4">
               <input
                 type="text"
-                className="flex-1 p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-500 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                className="flex-1 p-3 rounded-lg bg-[var(--card-bg)] text-[var(--card-text)] placeholder-gray-400 border border-[var(--border-color)] focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
                 placeholder="Mesajınızı yazın..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -105,18 +106,13 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Buttons */}
+            {/* Belge Oluştur Butonu */}
             <div className="mt-6 flex justify-center space-x-6">
               <button
                 className="px-6 py-3 bg-[#660066] text-white rounded-md shadow-md hover:bg-purple-800 transition-all"
                 onClick={() => router.replace("/document")}
               >
                 Belge Oluştur
-              </button>
-              <button
-                className="px-6 py-3 bg-[#191970] text-white rounded-md shadow-md hover:bg-blue-800 transition-all"
-              >
-                Belge İncele
               </button>
             </div>
           </div>

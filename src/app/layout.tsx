@@ -1,4 +1,4 @@
-'use client'; // Client component olarak işaretlendi
+'use client';
 
 import { useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -20,18 +20,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // 🌙 Tema kontrolü: localStorage + sistem tercihi
   useEffect(() => {
-    const isDark =
-      localStorage.getItem("theme") === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    const theme = storedTheme || (prefersDark ? "dark" : "light");
+
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
   }, []);
 
   return (
