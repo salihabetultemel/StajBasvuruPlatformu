@@ -23,7 +23,7 @@ async function fillTemplate(templatePath: string, fullData: Record<string, unkno
 
   try {
     doc.render({ data: fullData });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("❌ Şablon doldurma hatası:", error);
     throw new Error("Şablon doldurulurken hata oluştu.");
   }
