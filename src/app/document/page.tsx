@@ -12,6 +12,7 @@ export default function DocumentPage() {
   const [cumartesiCalisiyorMu, setCumartesiCalisiyorMu] = useState(false);
   const [calismaGunleri, setCalismaGunleri] = useState<string[]>([]);
   const [hata, setHata] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     tcKimlik: "33303602036",
@@ -74,11 +75,13 @@ export default function DocumentPage() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const hataMesaji = validateForm(formData);
     if (hataMesaji) {
       setHata(hataMesaji);
       return;
     }
+
     if (stajTuru === "donem") {
       if (calismaGunleri.length < 3) {
         setHata("Dönem içi staj için haftada en az 3 gün seçilmelidir.");
@@ -96,6 +99,7 @@ export default function DocumentPage() {
     }
 
     setHata("");
+    setLoading(true);
 
     try {
       const response = await fetch("/api/generate-pdf", {
@@ -119,13 +123,17 @@ export default function DocumentPage() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "staj_belgesi.pdf";
+      a.download = "staj_belgesi.docx";
+      a.style.display = "none";
       document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-    } catch {
-      console.error("PDF oluşturma hatası");
-      setHata(`PDF oluşturulamadı`);
+    } catch (err) {
+      console.error("PDF oluşturma hatası:", err);
+      setHata("PDF oluşturulamadı");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -178,6 +186,7 @@ export default function DocumentPage() {
             </div>
           )}
 
+          {/* Form Alanları */}
           {Object.keys(formData)
             .filter(
               (key) =>
@@ -237,7 +246,7 @@ export default function DocumentPage() {
           {ucretli && (
             <div className="bg-gray-100 p-4 rounded-xl mt-4">
               <h2 className="text-lg font-semibold mb-2">EK-2 Formu Bilgileri</h2>
-              {[
+              {[ 
                 { name: "stajUcreti", label: "Stajyer Ödenecek Ücret" },
                 { name: "firmaVergiNo", label: "Firma Vergi No" },
                 { name: "vergiDairesi", label: "Vergi Dairesi" },
@@ -266,9 +275,12 @@ export default function DocumentPage() {
 
           <button
             type="submit"
-            className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 rounded-lg mt-6 transition"
+            disabled={loading}
+            className={`w-full text-white font-bold py-2 rounded-lg mt-6 transition ${
+              loading ? "bg-gray-500 cursor-not-allowed" : "bg-purple-700 hover:bg-purple-800"
+            }`}
           >
-            PDF Oluştur
+            {loading ? "Oluşturuluyor..." : "PDF Oluştur"}
           </button>
         </form>
       </div>

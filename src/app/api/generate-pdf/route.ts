@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { existsSync, writeFileSync } from "fs"; // ✅ mkdirSync'ı kaldırdım
 import path from "path";
-import convert from "docx2pdf";
-import { readFile } from "fs/promises";
+import { readFile, writeFile, unlink } from "fs/promises";
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
+import { tmpdir } from "os";
+import { randomUUID } from "crypto";
+import { existsSync } from "fs";
 
 const formatDate = (isoDate: string) => {
   if (!isoDate) return "";
@@ -22,18 +23,20 @@ async function fillTemplate(templatePath: string, fullData: Record<string, unkno
 
   try {
     doc.render({ data: fullData });
-  } catch (error: unknown) {
+  } catch (error: any) {
     console.error("❌ Şablon doldurma hatası:", error);
     throw new Error("Şablon doldurulurken hata oluştu.");
   }
 
-  const outputPath = templatePath.replace(".docx", "_filled.docx");
-  const generatedBuffer = doc.getZip().generate({ type: "nodebuffer" });
-  writeFileSync(outputPath, generatedBuffer);
+  const buffer = doc.getZip().generate({ type: "nodebuffer" });
+  const outputPath = path.join(tmpdir(), `${randomUUID()}.docx`);
+  await writeFile(outputPath, buffer);
   return outputPath;
 }
 
 export async function POST(req: Request) {
+  console.log("✅ API isteği alındı");
+
   try {
     const data = await req.json();
     const { stajTuru, ucretli, cumartesiCalisiyorMu, calismaGunleri = [], ...formData } = data;
@@ -89,37 +92,33 @@ export async function POST(req: Request) {
     const documentsDir = path.join(process.cwd(), "public/documents");
     const templateName = stajTuru === "yaz" ? "staj_yaz.docx" : "staj_donem.docx";
     const templatePath = path.join(documentsDir, templateName);
+
     if (!existsSync(templatePath)) throw new Error(`Şablon dosyası bulunamadı: ${templateName}`);
+    console.log("✅ Şablon bulundu:", templatePath);
 
-    const filledDocs = [await fillTemplate(templatePath, fullData)];
+    const filledDocPath = await fillTemplate(templatePath, fullData);
+    const docxBuffer = await readFile(filledDocPath);
 
-    if (ucretli) {
-      const ek2Path = path.join(documentsDir, "ek2.docx");
-      if (existsSync(ek2Path)) {
-        const filledEk2Path = await fillTemplate(ek2Path, fullData);
-        filledDocs.push(filledEk2Path);
-      }
-    }
+    // Temizlik
+    await unlink(filledDocPath).catch(() => {});
 
-    const pdfPaths: string[] = [];
-    for (const docPath of filledDocs) {
-      await convert(docPath);
-      pdfPaths.push(docPath.replace(".docx", ".pdf"));
-    }
-
-    const finalPdfPath = pdfPaths[0];
-    const pdfBuffer = await readFile(finalPdfPath);
-
-    return new NextResponse(pdfBuffer, {
+    return new NextResponse(docxBuffer, {
       status: 200,
       headers: {
-        "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="staj_belgesi.pdf"',
+        "Content-Type":
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "Content-Disposition": 'attachment; filename="staj_belgesi.docx"',
       },
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Hata oluştu";
-    console.error("❌ Hata:", message);
-    return new NextResponse(message, { status: 500 });
+    console.error("❌ Backend Hatası:", message);
+
+    return new NextResponse(JSON.stringify({ error: message }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }
