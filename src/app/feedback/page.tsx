@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../../../components/navbar";
-import SidebarMenu from "../../../components/sidebarmenu";
+import Navbar from "../../../components/navbar"; // Varsayılan path, kendi yapınıza göre düzeltin
+import SidebarMenu from "../../../components/sidebarmenu"; // Varsayılan path, kendi yapınıza göre düzeltin
 
 export default function FeedbackPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<{ type: 'idle' | 'loading' | 'success' | 'error', message: string }>({ type: 'idle', message: '' });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -19,10 +19,41 @@ export default function FeedbackPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Mesajınız alındı. Teşekkür ederiz!");
-    console.log("Geri bildirim gönderildi:", form);
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus(""), 5000);
+    setStatus({ type: 'loading', message: 'Gönderiliyor...' }); // Gönderim başladığında durumu güncelle
+
+    try {
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        // Sunucudan gelen hata mesajını kullan veya genel bir mesaj göster
+        throw new Error(result.error || 'Bir hata oluştu.');
+      }
+
+      // Başarılı ise
+      setStatus({ type: 'success', message: 'Mesajınız başarıyla alındı. Teşekkür ederiz!' });
+      console.log("Geri bildirim başarıyla gönderildi:", result);
+      setForm({ name: "", email: "", message: "" }); // Formu temizle
+
+      // 5 saniye sonra başarı mesajını temizle
+      setTimeout(() => setStatus({ type: 'idle', message: '' }), 5000);
+
+    } catch (error) {
+      // Hata durumunda
+      console.error("Geri bildirim gönderilirken hata:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Mesaj gönderilemedi. Lütfen tekrar deneyin.';
+      setStatus({ type: 'error', message: `Hata: ${errorMessage}` });
+
+      // Hata mesajını bir süre sonra temizleyebilirsiniz, isteğe bağlı
+      // setTimeout(() => setStatus({ type: 'idle', message: '' }), 7000);
+    }
   };
 
   return (
@@ -50,6 +81,7 @@ export default function FeedbackPage() {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Input alanları aynı kalacak */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">Adınız</label>
                 <input
@@ -61,6 +93,7 @@ export default function FeedbackPage() {
                   onChange={handleChange}
                   className="w-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-md py-2 px-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                   required
+                  disabled={status.type === 'loading'} // Gönderim sırasında disable et
                 />
               </div>
 
@@ -75,6 +108,7 @@ export default function FeedbackPage() {
                   onChange={handleChange}
                   className="w-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-md py-2 px-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                   required
+                  disabled={status.type === 'loading'} // Gönderim sırasında disable et
                 />
               </div>
 
@@ -89,21 +123,31 @@ export default function FeedbackPage() {
                   rows={5}
                   className="w-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--card-text)] rounded-md py-2 px-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                   required
+                  disabled={status.type === 'loading'} // Gönderim sırasında disable et
                 ></textarea>
               </div>
 
-              <div className="flex justify-start">
+              <div className="flex justify-start items-center space-x-4">
                 <button
                   type="submit"
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+                  className={`bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 ${status.type === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={status.type === 'loading'} // Gönderim sırasında butonu disable et
                 >
-                  Gönder
+                  {status.type === 'loading' ? 'Gönderiliyor...' : 'Gönder'}
                 </button>
+
+                {/* Durum Mesajı */}
+                {status.message && (
+                  <p className={`text-sm font-medium ${
+                    status.type === 'success' ? 'text-green-600' :
+                    status.type === 'error' ? 'text-red-600' :
+                    'text-gray-500' // loading durumu için
+                  }`}>
+                    {status.message}
+                  </p>
+                )}
               </div>
 
-              {status && (
-                <p className="mt-4 text-sm font-medium text-green-600">{status}</p>
-              )}
             </form>
           </div>
         </main>
