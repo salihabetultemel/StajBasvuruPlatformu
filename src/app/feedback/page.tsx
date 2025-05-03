@@ -55,7 +55,6 @@ export default function FeedbackPage() {
       // setTimeout(() => setStatus({ type: 'idle', message: '' }), 7000);
     }
   };
-
   return (
     <div className="min-h-screen font-sans bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300 ease-in-out">
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
