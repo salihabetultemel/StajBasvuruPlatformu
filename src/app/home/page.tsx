@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../../../components/navbar";
 import SidebarMenu from "../../../components/sidebarmenu";
+import PrivacyModal from '../../../components/PrivacyModal';
+
 
 export default function Home() {
   const router = useRouter();
@@ -48,6 +50,9 @@ export default function Home() {
 
   return (
     <div className="bg-[var(--background)] text-[var(--foreground)] min-h-screen flex">
+      
+      <PrivacyModal />
+
       {/* Sidebar */}
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 

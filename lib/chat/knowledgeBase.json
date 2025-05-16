@@ -1,0 +1,1264 @@
+[
+  {
+    "id": "faq_1",
+    "source": "faq",
+    "topic": "başvuru, belge, EK-1, EK-2, EK-3",
+    "question": "Staj başvurusu yaptım OBS'den. Staj yapacağım şirkette EK-1, EK-2 belgelerini de imzalattım ve EK-3 belgesini de doldurdum. Bu belgeleri size mi atmam gerekiyor?",
+    "answer": "Bölüm staj sayfasını oku.",
+    "search_text": "Staj başvurusu yaptım OBS'den. Staj yapacağım şirkette EK-1, EK-2 belgelerini de imzalattım ve EK-3 belgesini de doldurdum. Bu belgeleri size mi atmam gerekiyor? başvuru belge EK-1 EK-2 EK-3"
+  },
+  {
+    "id": "faq_2",
+    "source": "faq",
+    "topic": "onay, OBS, staj defteri",
+    "question": "OBS'de staj bilgilerimde onaylandı yazması gerekmiyor mu? O şekilde bilgim vardı. Size sormak danışmak istedim.",
+    "answer": "Staj defterleri öyle verdiğiniz gibi okunmuyor. Dönem dönem okunuyor diyor.",
+    "search_text": "OBS'de staj bilgilerimde onaylandı yazması gerekmiyor mu? O şekilde bilgim vardı. Size sormak danışmak istedim. onay OBS staj defteri"
+  },
+  {
+    "id": "faq_3",
+    "source": "faq",
+    "topic": "ikinci staj, firma",
+    "question": "İkinci stajımı da aynı yerde staj yapmam sorun olur mu?",
+    "answer": "Aynı yerde staj yapabilirsin.",
+    "search_text": "İkinci stajımı da aynı yerde staj yapmam sorun olur mu? ikinci staj firma"
+  },
+  {
+    "id": "faq_4",
+    "source": "faq",
+    "topic": "başlangıç günü, takvim",
+    "question": "Cuma günü başlatsam stajımı sorun olur mu?",
+    "answer": "Pazartesi başlamak zorundasın.",
+    "search_text": "Cuma günü başlatsam stajımı sorun olur mu? başlangıç günü takvim"
+  },
+  {
+    "id": "faq_5",
+    "source": "faq",
+    "topic": "süre, iki staj",
+    "question": "Hocam, peki her bir stajımız 20 gün olmak zorunda değil mi? Toplamda 40 olması yeterli değil mi?",
+    "answer": "İki ayrı 20 günlük staj yapmak zorundasın.",
+    "search_text": "Hocam, peki her bir stajımız 20 gün olmak zorunda değil mi? Toplamda 40 olması yeterli değil mi? süre iki staj"
+  },
+  {
+    "id": "faq_6",
+    "source": "faq",
+    "topic": "resmi tatil, takvim",
+    "question": "30 Ağustos Zafer Bayramı'nı resmi tatil olarak mı dahil ediyoruz?",
+    "answer": "Evet.",
+    "search_text": "30 Ağustos Zafer Bayramı'nı resmi tatil olarak mı dahil ediyoruz? resmi tatil takvim"
+  },
+  {
+    "id": "faq_7",
+    "source": "faq",
+    "topic": "teslim süresi, tatil",
+    "question": "En az 10 iş günü öncesinden evrakları teslim edilebilir denildi. Buna bayram tatili dahil midir?",
+    "answer": "Hayır, bayram tatilleri dahil değildir.",
+    "search_text": "En az 10 iş günü öncesinden evrakları teslim edilebilir denildi. Buna bayram tatili dahil midir? teslim süresi tatil"
+  },
+  {
+    "id": "faq_8",
+    "source": "faq",
+    "topic": "başlangıç tarihi, sigorta",
+    "question": "Hocam, staj yeri başlangıç tarihi belirlendi. İmzalanan kağıtları getirmek için bir ay öncesine kadar beklemem mi gerekiyor?",
+    "answer": "Sigorta işlemlerinde sorun olmaması için beklemen daha uygun olacaktır.",
+    "search_text": "Hocam, staj yeri başlangıç tarihi belirlendi. İmzalanan kağıtları getirmek için bir ay öncesine kadar beklemem mi gerekiyor? başlangıç tarihi sigorta"
+  },
+  {
+    "id": "faq_9",
+    "source": "faq",
+    "topic": "başvuru, zamanlama",
+    "question": "Stajımın başlamasına kaç gün kala başvuru yaptığımda kabul olur?",
+    "answer": "15 gün öncesinde başvurun.",
+    "search_text": "Stajımın başlamasına kaç gün kala başvuru yaptığımda kabul olur? başvuru zamanlama"
+  },
+  {
+    "id": "faq_10",
+    "source": "faq",
+    "topic": "imza, başvuru",
+    "question": "Staj başvuru kağıdına imza atmadan onaya yollayabilir miyim?",
+    "answer": "Hayır. Staj reddedilecektir.",
+    "search_text": "Staj başvuru kağıdına imza atmadan onaya yollayabilir miyim? imza başvuru"
+  },
+  {
+    "id": "faq_11",
+    "source": "faq",
+    "topic": "belge, düzeltme, hatalı belge",
+    "question": "Yanlış doldurulan staj evrağında Paint benzeri uygulamalarla oynama yapabilir miyim?",
+    "answer": "Hayır, oynama yapılmamalıdır.",
+    "search_text": "Yanlış doldurulan staj evrağında Paint benzeri uygulamalarla oynama yapabilir miyim? belge düzeltme hatalı belge"
+  },
+  {
+    "id": "faq_12",
+    "source": "faq",
+    "topic": "resmi tatil, takvim",
+    "question": "15 Temmuz Milli İrade ve Demokrasi Günü'nü de tatil olarak mı kabul etmeliyiz?",
+    "answer": "Evet.",
+    "search_text": "15 Temmuz Milli İrade ve Demokrasi Günü'nü de tatil olarak mı kabul etmeliyiz? resmi tatil takvim"
+  },
+  {
+    "id": "faq_13",
+    "source": "faq",
+    "topic": "EK-2, devlet kurumu, belge",
+    "question": "Devlet kurumunda yapacağımız staj için ikinci belgeyi (EK-2 Öğrenci-İşveren Staj Sözleşmesi Formu) doldurmalı mıyız?",
+    "answer": "Hayır, devlet kurumlarında yapılan stajlar için EK-2 belgesinin doldurulması gerekmiyor.",
+    "search_text": "Devlet kurumunda yapacağımız staj için ikinci belgeyi (EK-2 Öğrenci-İşveren Staj Sözleşmesi Formu) doldurmalı mıyız? EK-2 devlet kurumu belge"
+  },
+  {
+    "id": "faq_14",
+    "source": "faq",
+    "topic": "firma, faaliyet alanı",
+    "question": "Staj için bulduğum şirket SPA ve ERP yazılımları üzerine çalışıyor, kabul olur mu?",
+    "answer": "Tabii ki olabilir.",
+    "search_text": "Staj için bulduğum şirket SPA ve ERP yazılımları üzerine çalışıyor, kabul olur mu? firma faaliyet alanı"
+  },
+  {
+    "id": "faq_15",
+    "source": "faq",
+    "topic": "imza, hocaya onay",
+    "question": "Staj belgelerini hocaya imzalatmam gerekiyor mu?",
+    "answer": "İşlemler online hallediliyor, yüz yüze görüşmeye gerek yok.",
+    "search_text": "Staj belgelerini hocaya imzalatmam gerekiyor mu? imza hocaya onay"
+  },
+  {
+    "id": "faq_16",
+    "source": "faq",
+    "topic": "onay, bilgilendirme",
+    "question": "Stajın onayıyla alakalı bir mail gelecek değil mi?",
+    "answer": "Staj bürosuna bilgilerin iletildiğinde sana bilgi verilecek.",
+    "search_text": "Stajın onayıyla alakalı bir mail gelecek değil mi? onay bilgilendirme"
+  },
+  {
+    "id": "faq_17",
+    "source": "faq",
+    "topic": "dönem içi, sınav, staj",
+    "question": "Okul ve sınav dönemi staj yapabilir miyim?",
+    "answer": "Staj el kitabında cevabı yazıyor.",
+    "search_text": "Okul ve sınav dönemi staj yapabilir miyim? dönem içi sınav staj"
+  },
+  {
+    "id": "faq_18",
+    "source": "faq",
+    "topic": "başvuru, duyuru",
+    "question": "Staj başvurusunu istediğimizde yapabiliyor muyuz yoksa bununla alakalı bir duyuru yayınlanacak mı?",
+    "answer": "Evet.",
+    "search_text": "Staj başvurusunu istediğimizde yapabiliyor muyuz yoksa bununla alakalı bir duyuru yayınlanacak mı? başvuru duyuru"
+  },
+  {
+    "id": "faq_19",
+    "source": "faq",
+    "topic": "yaz okulu, staj, eş zamanlı",
+    "question": "Yaz okulu ve staj aynı anda (farklı günlerde) yapılabiliyor mu?",
+    "answer": "Stajını ve yaz okulunu aynı şehirde yapacaksan, yaz okulu gününü dahil etmeyeceksen yapabilirsin.",
+    "search_text": "Yaz okulu ve staj aynı anda (farklı günlerde) yapılabiliyor mu? yaz okulu staj eş zamanlı"
+  },
+  {
+    "id": "faq_20",
+    "source": "faq",
+    "topic": "4A, e-devlet, sigorta",
+    "question": "Staj için 4A kısmına baktım e-devletten ama bir belge gözükmüyor. Neden olabilir?",
+    "answer": "Stajına bundan sonraki iş gününde başlayacaksan mfstaj@balikesir.edu.tr adresine mail at.",
+    "search_text": "Staj için 4A kısmına baktım e-devletten ama bir belge gözükmüyor. Neden olabilir? 4A e-devlet sigorta"
+  },
+  {
+    "id": "faq_21",
+    "source": "faq",
+    "topic": "firma, mühendis, uygunluk",
+    "question": "Fabrikadaki IT bölümünde mühendis yokmuş yine de staj yapabilir miyim?",
+    "answer": "Hayır.",
+    "search_text": "Fabrikadaki IT bölümünde mühendis yokmuş yine de staj yapabilir miyim? firma mühendis uygunluk"
+  },
+  {
+    "id": "faq_22",
+    "source": "faq",
+    "topic": "online, teslim, belge",
+    "question": "Staj başvuru formunu online olarak gönderdim. Belgelerin imzalı halini bu hafta içinde de teslim edebilir miyim?",
+    "answer": "Evrakların imzalı hallerini bir yere teslim etmene gerek yok. Her şey online.",
+    "search_text": "Staj başvuru formunu online olarak gönderdim. Belgelerin imzalı halini bu hafta içinde de teslim edebilir miyim? online teslim belge"
+  },
+  {
+    "id": "faq_23",
+    "source": "faq",
+    "topic": "onay, ıslak imza, firma",
+    "question": "Staj onayını dijital olarak yapabiliyor muyuz? Firmaya gidip ıslak imza ile doldurulması gerekiyor mu staj yapacağım firma okulla iletişime geç dedi bu konu hakkında.",
+    "answer": "Okula online teslim edebiliyorsun ancak firma ıslak kaşe ve imza olmak zorundadır.",
+    "search_text": "Staj onayını dijital olarak yapabiliyor muyuz? Firmaya gidip ıslak imza ile doldurulması gerekiyor mu staj yapacağım firma okulla iletişime geç dedi bu konu hakkında. onay ıslak imza firma"
+  },
+  {
+    "id": "faq_24",
+    "source": "faq",
+    "topic": "yaz stajı, takvim",
+    "question": "Yaz tatilinin herhangi bir vaktinde stajımızı yapabiliriz değil mi? İlla temmuz olmak zorunda mı? Ağustos ayında da yapabilir miyiz?",
+    "answer": "Staj el kitabını oku.",
+    "search_text": "Yaz tatilinin herhangi bir vaktinde stajımızı yapabiliriz değil mi? İlla temmuz olmak zorunda mı? Ağustos ayında da yapabilir miyiz? yaz stajı takvim"
+  },
+  {
+    "id": "faq_25",
+    "source": "faq",
+    "topic": "rapor, mail, durum bildirimi",
+    "question": "Rahatsız olduğum için rapor aldım ve işe gelmedim. Bugün ise staj yerime geldim raporumu teslim ettim. İnsan kaynaklarına raporlu olduğum ve gelemediğim için ne yapmam gerektiğini sordum, okuluma sormamı söylediler. Böyle bir durumda ne yapmam gerekli?",
+    "answer": "mfstaj@balikesir.edu.tr'ye durumu açıklayan bir mail at.",
+    "search_text": "Rahatsız olduğum için rapor aldım ve işe gelmedim. Bugün ise staj yerime geldim raporumu teslim ettim. İnsan kaynaklarına raporlu olduğum ve gelemediğim için ne yapmam gerektiğini sordum, okuluma sormamı söylediler. Böyle bir durumda ne yapmam gerekli? rapor mail durum bildirimi"
+  },
+  {
+    "id": "faq_26",
+    "source": "faq",
+    "topic": "süre uzatma, sigorta, işyeri",
+    "question": "Şu an stajıma başladım, 2 hafta oldu da stajı 30 güne uzatmam mümkün mü?",
+    "answer": "Sen istersen 40 yap, ancak okul sigortanı 20 gün yaptı ve bu uzamayacak. Sigorta olayını işyeri ile çözmelisin.",
+    "search_text": "Şu an stajıma başladım, 2 hafta oldu da stajı 30 güne uzatmam mümkün mü? süre uzatma sigorta işyeri"
+  },
+  {
+    "id": "faq_27",
+    "source": "faq",
+    "topic": "staj sicil fişi, fotoğraf, mühür",
+    "question": "Staj el kitabında staj sicil fişi ile ilgili geçen seneden ötürü uzaktan eğitimden dolayı mühürlenmesi gerekmemektedir denilmiş. Bu sene ile ilgili fotoğraf yapıştırıp mühürletmemiz gerekiyor mu yoksa aynı prosedür devam mı ediyor, sormak istedim.",
+    "answer": "Firma isterse mühürletirsin. Firma özellikle istemiyorsa gerek yok.",
+    "search_text": "Staj el kitabında staj sicil fişi ile ilgili geçen seneden ötürü uzaktan eğitimden dolayı mühürlenmesi gerekmemektedir denilmiş. Bu sene ile ilgili fotoğraf yapıştırıp mühürletmemiz gerekiyor mu yoksa aynı prosedür devam mı ediyor, sormak istedim. staj sicil fişi fotoğraf mühür"
+  },
+  {
+    "id": "faq_28",
+    "source": "faq",
+    "topic": "başvuru, iki staj, sıralama",
+    "question": "İki stajım art arda olacağı için başvurularını aynı anda yapsam olur mu?",
+    "answer": "Hayır, vakti geldiğinde yapmalısın.",
+    "search_text": "İki stajım art arda olacağı için başvurularını aynı anda yapsam olur mu? başvuru iki staj sıralama"
+  },
+  {
+    "id": "faq_29",
+    "source": "faq",
+    "topic": "başlangıç günü, tatil, iki staj",
+    "question": "Birinci ve ikinci stajımı art arda yapacağım ve resmi tatillerden ötürü ikinci stajım salı günü başlasa bir sorun olur mu acaba?",
+    "answer": "Sorun olmaz.",
+    "search_text": "Birinci ve ikinci stajımı art arda yapacağım ve resmi tatillerden ötürü ikinci stajım salı günü başlasa bir sorun olur mu acaba? başlangıç günü tatil iki staj"
+  },
+  {
+    "id": "faq_30",
+    "source": "faq",
+    "topic": "staj defteri, kargo, teslim",
+    "question": "Staj sürecimi tamamladım ve mezun durumundayım. Balıkesir'de olmadığım için staj defterimi öğrenci işlerine kargolasam olur mu?",
+    "answer": "Öğrenci işlerine değil bölüme kargolanmalıdır.",
+    "search_text": "Staj sürecimi tamamladım ve mezun durumundayım. Balıkesir'de olmadığım için staj defterimi öğrenci işlerine kargolasam olur mu? staj defteri kargo teslim"
+  },
+  {
+    "id": "faq_31",
+    "source": "faq",
+    "topic": "staj sicil fişi, fotoğraf",
+    "question": "Staj sicil fişinde fotoğrafım olmasa sorun olur mu?",
+    "answer": "Fotoğrafsız olabilir.",
+    "search_text": "Staj sicil fişinde fotoğrafım olmasa sorun olur mu? staj sicil fişi fotoğraf"
+  },
+  {
+    "id": "faq_32",
+    "source": "faq",
+    "topic": "staj sicil fişi, imza, zamanlama",
+    "question": "Staj sicil fişindeki staj komisyonu tarafından doldurulup imzalanması gereken yer staj bittikten sonra mı imzalanacak yoksa stajdan önce mi imzalanması gerekiyordu?",
+    "answer": "Staj bittikten sonra imzalanır.",
+    "search_text": "Staj sicil fişindeki staj komisyonu tarafından doldurulup imzalanması gereken yer staj bittikten sonra mı imzalanacak yoksa stajdan önce mi imzalanması gerekiyordu? staj sicil fişi imza zamanlama"
+  },
+  {
+    "id": "faq_33",
+    "source": "faq",
+    "topic": "mühür, fotoğraf, staj sicil fişi",
+    "question": "Yaptığım staj başvurusu kabul edilmiş. Staj sicil fişi dolduracağım. Fotoğraf yapıştırma bölümünde 'Öğrenci işlerinden mühür yaptırınız' yazıyor. Mühürü okula gelerek mi yaptırmam gerekiyor yoksa bilgisayar ortamından mı yapılıyor?",
+    "answer": "Mühre gerek yok.",
+    "search_text": "Yaptığım staj başvurusu kabul edilmiş. Staj sicil fişi dolduracağım. Fotoğraf yapıştırma bölümünde 'Öğrenci işlerinden mühür yaptırınız' yazıyor. Mühürü okula gelerek mi yaptırmam gerekiyor yoksa bilgisayar ortamından mı yapılıyor? mühür fotoğraf staj sicil fişi"
+  },
+  {
+    "id": "faq_34",
+    "source": "faq",
+    "topic": "SGK, e-devlet, işe giriş",
+    "question": "Sosyal Güvenlik Kurumu ile ilişkilendirme belgesi 'SGK İşe Giriş Bildirgesi' belgesini nereden temin edebilirim?",
+    "answer": "E-devletten kendin alacaksın. Staj el kitabında bununla ilgili açıklama var.",
+    "search_text": "Sosyal Güvenlik Kurumu ile ilişkilendirme belgesi 'SGK İşe Giriş Bildirgesi' belgesini nereden temin edebilirim? SGK e-devlet işe giriş"
+  },
+  {
+    "id": "faq_35",
+    "source": "faq",
+    "topic": "SGK, sigorta, e-devlet",
+    "question": "SGK İşe Giriş Bildirgesi stajım onaylandığında e-devlette gözükecek sanırım, değil mi?",
+    "answer": "Stajın onaylandığında değil, staj için sigortan yapıldığında gözükür. Staja başlamadan birkaç gün önce yapılır.",
+    "search_text": "SGK İşe Giriş Bildirgesi stajım onaylandığında e-devlette gözükecek sanırım, değil mi? SGK sigorta e-devlet"
+  },
+  {
+    "id": "faq_36",
+    "source": "faq",
+    "topic": "onay, başvuru, iletişim",
+    "question": "Staj başvurum için formu atmıştım ve onay mesajı gelmedi hâlâ. Ne zaman gelir?",
+    "answer": "Stajın başlamasına iki iş günü kala hâlâ gelmediyse mfstaj@balikesir.edu.tr'ye mail atarak iletişime geçebilirsin.",
+    "search_text": "Staj başvurum için formu atmıştım ve onay mesajı gelmedi hâlâ. Ne zaman gelir? onay başvuru iletişim"
+  },
+  {
+    "id": "faq_37",
+    "source": "faq",
+    "topic": "iki staj, başvuru, zamanlama",
+    "question": "Hocam iki stajım art arda olacağı için başvurularını aynı anda yapsam olur mu peki?",
+    "answer": "Hayır, zamanı gelince yap.",
+    "search_text": "Hocam iki stajım art arda olacağı için başvurularını aynı anda yapsam olur mu peki? iki staj başvuru zamanlama"
+  },
+  {
+    "id": "faq_38",
+    "source": "faq",
+    "topic": "staj sicil fişi, imza",
+    "question": "Staj sicil fişindeki staj komisyonu tarafından doldurulup imzalanması gereken yer staj bittikten sonra mı imzalanacak yoksa stajdan önce mi imzalanması gerekiyordu?",
+    "answer": "Staj bittikten sonra.",
+    "search_text": "Staj sicil fişindeki staj komisyonu tarafından doldurulup imzalanması gereken yer staj bittikten sonra mı imzalanacak yoksa stajdan önce mi imzalanması gerekiyordu? staj sicil fişi imza"
+  },
+  {
+    "id": "faq_39",
+    "source": "faq",
+    "topic": "EK-1, belge teslim, form",
+    "question": "Bölüm sayfasında 'staj kabul formunun bir nüshasını bölüm sekreterliğine, işe giriş bildirgesini de işyerine teslim edin' diyor. Bu belgeleri nereden görebilirim?",
+    "answer": "Ek-1'den bahsediliyor. İşyerine teslim edeceğini et. Bize bir şey teslim etmen gerekmiyor bu aşamada.",
+    "search_text": "Bölüm sayfasında 'staj kabul formunun bir nüshasını bölüm sekreterliğine, işe giriş bildirgesini de işyerine teslim edin' diyor. Bu belgeleri nereden görebilirim? EK-1 belge teslim form"
+  },
+  {
+    "id": "faq_40",
+    "source": "faq",
+    "topic": "mühür, staj sicil fişi, fotoğraf",
+    "question": "Staj sicil fişi dolduracağım. Fotoğraf yapıştırma bölümünde 'Öğrenci işlerinden mühür yaptırınız' yazıyor. Mührü okula gelerek mi yaptırmam gerekiyor yoksa bilgisayar ortamından mı yapılıyor?",
+    "answer": "Mühre gerek yok.",
+    "search_text": "Staj sicil fişi dolduracağım. Fotoğraf yapıştırma bölümünde 'Öğrenci işlerinden mühür yaptırınız' yazıyor. Mührü okula gelerek mi yaptırmam gerekiyor yoksa bilgisayar ortamından mı yapılıyor? mühür staj sicil fişi fotoğraf"
+  },
+  {
+    "id": "faq_41",
+    "source": "faq",
+    "topic": "4A, giriş çıkış, sigorta",
+    "question": "4A işe giriş çıkış bildirgesine baktığımda çıkışın daha yapılmadığını, yeni stajım için ise girişin yapılmadığını gördüm. Bu bir sorun yaratır mı?",
+    "answer": "Aynı firmada staj yapacaksan zaten çıkış yapılmıyor, izin gibi gösteriliyor aradaki günler.",
+    "search_text": "4A işe giriş çıkış bildirgesine baktığımda çıkışın daha yapılmadığını, yeni stajım için ise girişin yapılmadığını gördüm. Bu bir sorun yaratır mı? 4A giriş çıkış sigorta"
+  },
+  {
+    "id": "faq_42",
+    "source": "faq",
+    "topic": "ders dönemi, zorunluluk, staj",
+    "question": "Derslerin başlamasına az bir süre kaldığı için, ilk haftasında staj yapmaya devam edebilir miyim? Yoksa dersler başladıktan sonra yapılan stajlar zorunlu yaz stajı olarak kabul edilmiyor mu?",
+    "answer": "Okul devam ederken, devam zorunluluğu olan derslerin varsa staj yapamazsın.",
+    "search_text": "Derslerin başlamasına az bir süre kaldığı için, ilk haftasında staj yapmaya devam edebilir miyim? Yoksa dersler başladıktan sonra yapılan stajlar zorunlu yaz stajı olarak kabul edilmiyor mu? ders dönemi zorunluluk staj"
+  },
+  {
+    "id": "faq_43",
+    "source": "faq",
+    "topic": "staj defteri, firma, online",
+    "question": "Bilgisayar Mühendisliği 2. sınıf yaz stajımı bitirmek üzereyim. Staj defteri ve staj fişinde firmanın doldurması gereken kısımlar online olarak doldurulsa bir probleme yol açar mı?",
+    "answer": "Online dolduramaz.",
+    "search_text": "Bilgisayar Mühendisliği 2. sınıf yaz stajımı bitirmek üzereyim. Staj defteri ve staj fişinde firmanın doldurması gereken kısımlar online olarak doldurulsa bir probleme yol açar mı? staj defteri firma online"
+  },
+  {
+    "id": "faq_44",
+    "source": "faq",
+    "topic": "online, staj",
+    "question": "Online staj yapabilir miyim?",
+    "answer": "Online staj yapabilirsin.",
+    "search_text": "Online staj yapabilir miyim? online staj"
+  },
+  {
+    "id": "faq_45",
+    "source": "faq",
+    "topic": "yaz okulu, eş zamanlı, staj",
+    "question": "Yaz okuluyla birlikte yapabilir miyim?",
+    "answer": "Staj el kitabını oku.",
+    "search_text": "Yaz okuluyla birlikte yapabilir miyim? yaz okulu eş zamanlı staj"
+  },
+  {
+    "id": "faq_46",
+    "source": "faq",
+    "topic": "giriş çıkış, iki staj, çıkış işlemi",
+    "question": "Stajyerim ikinci stajda başlamadan önce çıkışımın yapılmasını, sonrasında tekrar giriş işlemlerimin yapılması gerektiğini söyledi. Ne yapmalıyım?",
+    "answer": "İki staj arasındaki zaman 10 güne kadar olan aralarda izinli gösterilir ve çıkış yapılmaz; 10 günden fazla olduğunda çıkış yapıp yeniden giriş yapılır.",
+    "search_text": "Stajyerim ikinci stajda başlamadan önce çıkışımın yapılmasını, sonrasında tekrar giriş işlemlerimin yapılması gerektiğini söyledi. Ne yapmalıyım? giriş çıkış iki staj çıkış işlemi"
+  },
+  {
+    "id": "faq_47",
+    "source": "faq",
+    "topic": "staj sicil fişi, fotoğraf, elektronik",
+    "question": "Staj sicil fişine fotoğrafı elektronik ortamda koymam sıkıntı teşkil eder mi acaba?",
+    "answer": "Etmez.",
+    "search_text": "Staj sicil fişine fotoğrafı elektronik ortamda koymam sıkıntı teşkil eder mi acaba? staj sicil fişi fotoğraf elektronik"
+  },
+  {
+    "id": "faq_48",
+    "source": "faq",
+    "topic": "belge, imza, kurşun kalem",
+    "question": "Staj belgelerine kurşun kalemle imza atılabilir mi?",
+    "answer": "Hayır.",
+    "search_text": "Staj belgelerine kurşun kalemle imza atılabilir mi? belge imza kurşun kalem"
+  },
+  {
+    "id": "faq_49",
+    "source": "faq",
+    "topic": "EK-1, form, mail",
+    "question": "EK-1 Zorunlu Yaz Stajı Kabul Formunu doldurup staj komisyonuna mail atmam mı gerekiyor?",
+    "answer": "Bölümün staj sayfasını incele. El kitabını oku.",
+    "search_text": "EK-1 Zorunlu Yaz Stajı Kabul Formunu doldurup staj komisyonuna mail atmam mı gerekiyor? EK-1 form mail"
+  },
+  {
+    "id": "faq_50",
+    "source": "faq",
+    "topic": "EK-1, imza, işveren",
+    "question": "EK-1 belgesini teknik grup müdürünün imzası mı yoksa işyerinde çalışan bir bilgisayar mühendisinin imzası mı gerekli?",
+    "answer": "EK-1'i insan kaynakları bile imzalayabilir.",
+    "search_text": "EK-1 belgesini teknik grup müdürünün imzası mı yoksa işyerinde çalışan bir bilgisayar mühendisinin imzası mı gerekli? EK-1 imza işveren"
+  },
+  {
+    "id": "faq_51",
+    "source": "faq",
+    "topic": "staj sicil fişi, konu, zorunlu",
+    "question": "Staj sicil fişinde staj konusuna zorunlu staj yazmamız mı gerekiyor?",
+    "answer": "Fark etmez.",
+    "search_text": "Staj sicil fişinde staj konusuna zorunlu staj yazmamız mı gerekiyor? staj sicil fişi konu zorunlu"
+  },
+  {
+    "id": "faq_52",
+    "source": "faq",
+    "topic": "sigorta, şirket, başvuru",
+    "question": "Staj için sigortamı şirket karşılamak istiyor. Stajımı göstermemde bir sorun yaşayabilir miyim?",
+    "answer": "Staj için sigortanı şirket yapabilir. Teknik açıdan bir sorun yok. Sadece başvururken bu konuda beni bilgilendir.",
+    "search_text": "Staj için sigortamı şirket karşılamak istiyor. Stajımı göstermemde bir sorun yaşayabilir miyim? sigorta şirket başvuru"
+  },
+  {
+    "id": "faq_53",
+    "source": "faq",
+    "topic": "başlangıç günü, iki staj, takvim",
+    "question": "Okulumuzun web sitesinde pazartesi günleri staja başlayabileceğimiz yazıyor. Ancak ben 40 iş günü stajımı tek şirkette yapacağım ve 1. stajım pazartesi bittiği için 2. stajıma salı günü başlamak durumunda kalıyorum veya bir hafta beklemem gerekiyor. Salı günü başlayabilir miyim?",
+    "answer": "Başlayabilirsin.",
+    "search_text": "Okulumuzun web sitesinde pazartesi günleri staja başlayabileceğimiz yazıyor. Ancak ben 40 iş günü stajımı tek şirkette yapacağım ve 1. stajım pazartesi bittiği için 2. stajıma salı günü başlamak durumunda kalıyorum veya bir hafta beklemem gerekiyor. Salı günü başlayabilir miyim? başlangıç günü iki staj takvim"
+  },
+  {
+    "id": "faq_54",
+    "source": "faq",
+    "topic": "amir, mühendis, staj sicil fişi",
+    "question": "Staj sicil fişindeki Amir bölümüne insan kaynakları imza ve mühür atabilir mi?",
+    "answer": "Hayır, buraya seninle ilgilenen mühendis imza atmalı.",
+    "search_text": "Staj sicil fişindeki Amir bölümüne insan kaynakları imza ve mühür atabilir mi? amir mühendis staj sicil fişi"
+  },
+  {
+    "id": "faq_55",
+    "source": "faq",
+    "topic": "başlangıç tarihi, başvuru",
+    "question": "Staj için başvuru yapsam en erken hangi gün staja başlayabilirim?",
+    "answer": "Staj el kitabını oku.",
+    "search_text": "Staj için başvuru yapsam en erken hangi gün staja başlayabilirim? başlangıç tarihi başvuru"
+  },
+  {
+    "id": "faq_56",
+    "source": "faq",
+    "topic": "EK-1, onay, imza",
+    "question": "Staj için EK-1 dosyasını düzenlemiştim de komisyon onayı için imza istiyor. Nasıl sağlarım?",
+    "answer": "Staj el kitabını oku.",
+    "search_text": "Staj için EK-1 dosyasını düzenlemiştim de komisyon onayı için imza istiyor. Nasıl sağlarım? EK-1 onay imza"
+  },
+  {
+    "id": "faq_57",
+    "source": "faq",
+    "topic": "staj defteri, teslim, zaman",
+    "question": "Staj bittikten 1 ay sonra defteri teslim etmemiz mi gerekiyor yoksa okul başlayınca da teslim edebilir miyiz?",
+    "answer": "Okul başladıktan sonra teslim edebilirsiniz.",
+    "search_text": "Staj bittikten 1 ay sonra defteri teslim etmemiz mi gerekiyor yoksa okul başlayınca da teslim edebilir miyiz? staj defteri teslim zaman"
+  },
+  {
+    "id": "faq_58",
+    "source": "faq",
+    "topic": "firma, mühendis, uygunluk",
+    "question": "Hocam staj yapacağımız yerde mutlaka bilgisayar mühendisi olmak zorunda mı yoksa yazılım mühendisi ya da grafik tasarımcısı olsa kabul eder misiniz?",
+    "answer": "Yazılım mühendisi olur. Bilgisayar mühendisliği alanlarında çalışan elektrik elektronik mühendisi vb. mühendis varsa o da olur ama grafik tasarımcı olmaz.",
+    "search_text": "Hocam staj yapacağımız yerde mutlaka bilgisayar mühendisi olmak zorunda mı yoksa yazılım mühendisi ya da grafik tasarımcısı olsa kabul eder misiniz? firma mühendis uygunluk"
+  },
+  {
+    "id": "faq_59",
+    "source": "faq",
+    "topic": "OBS, mezuniyet, ders kaydı",
+    "question": "Benim üniversiteden mezun olmam için sadece 20 günlük stajım kaldı ancak ben bu staj-2 dersini BAUN OBS'den seçince 'Ders bölüm tarafından açılmamıştır' diyor. Ne yapmalıyım?",
+    "answer": "Sadece stajın kaldıysa ders kaydı yapmana gerek yok.",
+    "search_text": "Benim üniversiteden mezun olmam için sadece 20 günlük stajım kaldı ancak ben bu staj-2 dersini BAUN OBS'den seçince 'Ders bölüm tarafından açılmamıştır' diyor. Ne yapmalıyım? OBS mezuniyet ders kaydı"
+  },
+  {
+    "id": "faq_60",
+    "source": "faq",
+    "topic": "başlangıç günü, iki staj, firma",
+    "question": "Farklı bir firmada yapacağım ikinci stajımı ilk stajımın bitiminde perşembe gününden başlatabilir miyim?",
+    "answer": "Hayır, farklı firma olduğu için pazartesi başlamalısın.",
+    "search_text": "Farklı bir firmada yapacağım ikinci stajımı ilk stajımın bitiminde perşembe gününden başlatabilir miyim? başlangıç günü iki staj firma"
+  },
+  {
+    "id": "faq_61",
+    "source": "faq",
+    "topic": "staj defteri, sayfa numarası, elle yazım",
+    "question": "Staj defterinde sayfa numarasını yazmayı unutmuşum, elle yazabilir miyim?",
+    "answer": "Evet.",
+    "search_text": "Staj defterinde sayfa numarasını yazmayı unutmuşum, elle yazabilir miyim? staj defteri sayfa numarası elle yazım"
+  },
+  {
+    "id": "faq_62",
+    "source": "faq",
+    "topic": "büt, sınav haftası, dönem içi",
+    "question": "Büt haftası staj yapabiliyor muyuz?",
+    "answer": "Hayır. Sınav dönemi yapılamaz.",
+    "search_text": "Büt haftası staj yapabiliyor muyuz? büt sınav haftası dönem içi"
+  },
+  {
+    "id": "faq_63",
+    "source": "faq",
+    "topic": "staj defteri, doldurma, kalem",
+    "question": "Staj defterinin kapağını ve staj defterinin her sayfasında bulunan en alttaki kutucuğu (imza, tarih vb. alanını), staj defterini çıktı aldıktan sonra tükenmez kalem kullanarak doldurmamız uygun mu?",
+    "answer": "Fark etmez.",
+    "search_text": "Staj defterinin kapağını ve staj defterinin her sayfasında bulunan en alttaki kutucuğu (imza, tarih vb. alanını), staj defterini çıktı aldıktan sonra tükenmez kalem kullanarak doldurmamız uygun mu? staj defteri doldurma kalem"
+  },
+  {
+    "id": "faq_64",
+    "source": "faq",
+    "topic": "mühür, fotoğraf, staj sicil fişi",
+    "question": "Staj sicil fişinde fotoğraf yapıştıracağımız alanın öğrenci işleri tarafından mühürlenmesi gerektiği yazıyor. Nasıl hallederim?",
+    "answer": "Mührü firma isterse yaptırman gerek, istemezse gerek yok.",
+    "search_text": "Staj sicil fişinde fotoğraf yapıştıracağımız alanın öğrenci işleri tarafından mühürlenmesi gerektiği yazıyor. Nasıl hallederim? mühür fotoğraf staj sicil fişi"
+  },
+  {
+    "id": "faq_65",
+    "source": "faq",
+    "topic": "iki staj, teslim, staj defteri",
+    "question": "Ben ilk stajımı tamamladım, şu an ikincisini yapıyorum. 16'sında bitecek fakat staj defterinde mezun durumunda olan öğrenciler staj bitiminden itibaren 30 gün içinde defteri teslim etsin yazıyor. Benim iki defteri beraber teslim etmem sıkıntı yaratır mı? Yoksa ilk staj defterini şimdi göndermeli miyim?",
+    "answer": "2 staj defterini birlikte teslim edersin, sorun olmaz.",
+    "search_text": "Ben ilk stajımı tamamladım, şu an ikincisini yapıyorum. 16'sında bitecek fakat staj defterinde mezun durumunda olan öğrenciler staj bitiminden itibaren 30 gün içinde defteri teslim etsin yazıyor. Benim iki defteri beraber teslim etmem sıkıntı yaratır mı? Yoksa ilk staj defterini şimdi göndermeli miyim? iki staj teslim staj defteri"
+  },
+  {
+    "id": "faq_66",
+    "source": "faq",
+    "topic": "staj defteri, günlük, sayfa",
+    "question": "Staj defterinde her güne 1 sayfa mı yoksa bir sayfaya birkaç günü yazabilir miyim?",
+    "answer": "Her güne en az 1 sayfa olmalı. Bir sayfaya birden fazla gün yazamazsın.",
+    "search_text": "Staj defterinde her güne 1 sayfa mı yoksa bir sayfaya birkaç günü yazabilir miyim? staj defteri günlük sayfa"
+  },
+  {
+    "id": "faq_67",
+    "source": "faq",
+    "topic": "staj süresi, kendi bulduğum yer",
+    "question": "Hocam merhabalar. Zorunlu stajı kendi imkanlarımla bulacakmışım. Staj süresi ne kadar olacak?",
+    "answer": "Elbette kendin bulacaksın. 20'şer günlük 2 staj yapmanız gerekiyor.",
+    "search_text": "Hocam merhabalar. Zorunlu stajı kendi imkanlarımla bulacakmışım. Staj süresi ne kadar olacak? staj süresi kendi bulduğum yer"
+  },
+  {
+    "id": "faq_68",
+    "source": "faq",
+    "topic": "zorunlu staj, form, gün sayısı",
+    "question": "Ben şu anda ilk stajımı yapıyorum ardından hemen 2. stajımı yapacağım. Diğer stajım daha bitmediği için, zorunlu staj kabul formunda daha önce kabul edilen staj gün sayısı kısmını doldurmam gerekiyor mu?",
+    "answer": "Doldurmasan da olur.",
+    "search_text": "Ben şu anda ilk stajımı yapıyorum ardından hemen 2. stajımı yapacağım. Diğer stajım daha bitmediği için, zorunlu staj kabul formunda daha önce kabul edilen staj gün sayısı kısmını doldurmam gerekiyor mu? zorunlu staj form gün sayısı"
+  },
+  {
+    "id": "faq_69",
+    "source": "faq",
+    "topic": "çalışma, staj, firma uygunluğu",
+    "question": "Bir yerde çalışırken başka bir yerde staj yapılabiliyor mu?",
+    "answer": "Bilgisayar mühendisliği faaliyeti gösteren bir firmada bilgisayar mühendisliği ile ilgili olarak çalışıyorsan çalışmanı staj olarak sayabiliriz.",
+    "search_text": "Bir yerde çalışırken başka bir yerde staj yapılabiliyor mu? çalışma staj firma uygunluğu"
+  },
+  {
+    "id": "faq_70",
+    "source": "faq",
+    "topic": "başvuru, form, eksik belge",
+    "question": "Staj başvuru formunu eksik doldurmuşum. Yeni bir form düzenleyip tekrar göndermem yeterli mi?",
+    "answer": "Evet, eksik doldurduysan yeni form doldurup göndermen yeterlidir.",
+    "search_text": "Staj başvuru formunu eksik doldurmuşum. Yeni bir form düzenleyip tekrar göndermem yeterli mi? başvuru form eksik belge"
+  },
+  {
+    "id": "image_faq_1",
+    "source": "image_faq",
+    "topic": "öğrenim süresi, kayıt silme, tek/üç ders hakkı",
+    "question": "Azami öğrenim sürem doldu, kaydım silinir mi?",
+    "answer": "Azami öğrenim süresini (7 yıl) dolduran öğrencilerin kayıtları silinebilir. Ancak kalan ders sayısına göre tek/üç ders hakkı olabilir. Öğrenci İşleri ile iletişime geçilmelidir.",
+    "search_text": "Azami öğrenim sürem doldu, kaydım silinir mi? Azami öğrenim süresini (7 yıl) dolduran öğrencilerin kayıtları silinebilir. Ancak kalan ders sayısına göre tek/üç ders hakkı olabilir. Öğrenci İşleri ile iletişime geçilmelidir."
+  },
+  {
+    "id": "image_faq_2",
+    "source": "image_faq",
+    "topic": "ilk kayıt, belge teslimi",
+    "question": "İlk kayıt sırasında hangi belgeleri teslim etmeliyim?",
+    "answer": "Belge teslimi genellikle yeterlidir. Ancak özel durumlarda ek belgeler istenebilir. Detaylar her yıl ilan edilir.",
+    "search_text": "İlk kayıt sırasında hangi belgeleri teslim etmeliyim? Belge teslimi genellikle yeterlidir. Ancak özel durumlarda ek belgeler istenebilir. Detaylar her yıl ilan edilir."
+  },
+  {
+    "id": "image_faq_3",
+    "source": "image_faq",
+    "topic": "ders kaydı, dönem yenileme, danışman onayı, pasif dönem",
+    "question": "Her dönem ders kaydını yenilemek zorunda mıyım?",
+    "answer": "Evet. Ders kaydı yapılmalı ve danışman onayı alınmalıdır. Aksi halde dönem pasif sayılır.",
+    "search_text": "Her dönem ders kaydını yenilemek zorunda mıyım? Evet. Ders kaydı yapılmalı ve danışman onayı alınmalıdır. Aksi halde dönem pasif sayılır."
+  },
+  {
+    "id": "image_faq_4",
+    "source": "image_faq",
+    "topic": "muafiyet, ders muafiyeti",
+    "question": "Bir dersten muaf olabilir miyim?",
+    "answer": "Daha önce başarılı olunan dersler için kayıt yapılan ilk hafta içinde muafiyet başvurusu yapılabilir.",
+    "search_text": "Bir dersten muaf olabilir miyim? Daha önce başarılı olunan dersler için kayıt yapılan ilk hafta içinde muafiyet başvurusu yapılabilir."
+  },
+  {
+    "id": "image_faq_5",
+    "source": "image_faq",
+    "topic": "sınav sonuçları, itiraz, dilekçe",
+    "question": "Sınav sonuçlarına itiraz edebilir miyim?",
+    "answer": "Not ilanından itibaren 5 iş günü içinde dilekçe ile bölüm başkanlığına başvurabilirsiniz.",
+    "search_text": "Sınav sonuçlarına itiraz edebilir miyim? Not ilanından itibaren 5 iş günü içinde dilekçe ile bölüm başkanlığına başvurabilirsiniz."
+  },
+  {
+    "id": "image_faq_6",
+    "source": "image_faq",
+    "topic": "kayıt dondurma, mazeret, yönetim kurulu",
+    "question": "Kayıt dondurmak istiyorum, ne yapmalıyım?",
+    "answer": "Geçerli bir mazeretle dönem başında dilekçe ile başvuru yapılmalıdır. Yönetim kurulunca değerlendirilir.",
+    "search_text": "Kayıt dondurmak istiyorum, ne yapmalıyım? Geçerli bir mazeretle dönem başında dilekçe ile başvuru yapılmalıdır. Yönetim kurulunca değerlendirilir."
+  },
+  {
+    "id": "image_faq_7",
+    "source": "image_faq",
+    "topic": "mazeret sınavı, başvuru, mazeret belgesi",
+    "question": "Mazeret sınavına nasıl başvurabilirim?",
+    "answer": "Geçerli mazeret belgesi ile fakülte web sayfasında ilan edilen tarihler arasında bölüm başkanlığına başvuru yapılmalıdır.",
+    "search_text": "Mazeret sınavına nasıl başvurabilirim? Geçerli mazeret belgesi ile fakülte web sayfasında ilan edilen tarihler arasında bölüm başkanlığına başvuru yapılmalıdır."
+  },
+  {
+    "id": "image_faq_8",
+    "source": "image_faq",
+    "topic": "tek ders sınavı, başvuru, mezuniyet",
+    "question": "Tek ders sınavı nedir, kimler başvurabilir?",
+    "answer": "Mezuniyet için tek dersi kalan öğrenciler başvurabilir. Başvuru dönem sonunda yapılır.",
+    "search_text": "Tek ders sınavı nedir, kimler başvurabilir? Mezuniyet için tek dersi kalan öğrenciler başvurabilir. Başvuru dönem sonunda yapılır."
+  },
+  {
+    "id": "image_faq_9",
+    "source": "image_faq",
+    "topic": "OBS, belge alma, transkript, öğrenci belgesi, not dökümü",
+    "question": "OBS üzerinden hangi belgeleri alabilirim?",
+    "answer": "Transkript, öğrenci belgesi, not dökümü gibi belgeleri alabilirsiniz.",
+    "search_text": "OBS üzerinden hangi belgeleri alabilirim? Transkript, öğrenci belgesi, not dökümü gibi belgeleri alabilirsiniz."
+  },
+  {
+    "id": "image_faq_10",
+    "source": "image_faq",
+    "topic": "ders içerikleri, OBS, bologna",
+    "question": "Ders içeriklerine nereden ulaşabilirim?",
+    "answer": "https://obs.balikesir.edu.tr/oibs/bologna/ üzerinden ulaşabilirsiniz.",
+    "search_text": "Ders içeriklerine nereden ulaşabilirim? https://obs.balikesir.edu.tr/oibs/bologna/ üzerinden ulaşabilirsiniz."
+  },
+  {
+    "id": "image_faq_11",
+    "source": "image_faq",
+    "topic": "özel öğrenci, farklı üniversite, ders alma, başvuru",
+    "question": "Farklı bir üniversiteden özel öğrenci olarak ders alabilir miyim?",
+    "answer": "Başvuru şartları dahilinde dönem başında başvuru yapılabilir.",
+    "search_text": "Farklı bir üniversiteden özel öğrenci olarak ders alabilir miyim? Başvuru şartları dahilinde dönem başında başvuru yapılabilir."
+  },
+  {
+    "id": "image_faq_12",
+    "source": "image_faq",
+    "topic": "mezuniyet, diploma, teslim alma, vekalet",
+    "question": "Mezun oldum, diplomamı nasıl alabilirim?",
+    "answer": "Diplomanızı şahsen ya da noter vekaleti ile alabilirsiniz.",
+    "search_text": "Mezun oldum, diplomamı nasıl alabilirim? Diplomanızı şahsen ya da noter vekaleti ile alabilirsiniz."
+  },
+  {
+    "id": "image_faq_13",
+    "source": "image_faq",
+    "topic": "diploma kaybetme, ikinci nüsha, ilan",
+    "question": "Diplomamı kaybettim, ne yapmalıyım?",
+    "answer": "Gazetede ilan vererek dilekçe ile ikinci nüsha için başvuru yapabilirsiniz.",
+    "search_text": "Diplomamı kaybettim, ne yapmalıyım? Gazetede ilan vererek dilekçe ile ikinci nüsha için başvuru yapabilirsiniz."
+  },
+  {
+    "id": "image_faq_14",
+    "source": "image_faq",
+    "topic": "staj, zorunluluk, zamanlama, staj kılavuzu",
+    "question": "Staj yapmam zorunlu mu? Ne zaman yapılmalı?",
+    "answer": "Evet. Genellikle 3. sınıf yazında yapılır. Detaylar staj kılavuzunda yer alır.",
+    "search_text": "Staj yapmam zorunlu mu? Ne zaman yapılmalı? Evet. Genellikle 3. sınıf yazında yapılır. Detaylar staj kılavuzunda yer alır."
+  },
+  {
+    "id": "image_faq_15",
+    "source": "image_faq",
+    "topic": "yatay geçiş, başvuru, belge alma, dilekçe",
+    "question": "Yatay geçiş başvurusu için belge alabilir miyim?",
+    "answer": "Dilekçe ile bölüm başkanlığına başvurarak belge alabilirsiniz.",
+    "search_text": "Yatay geçiş başvurusu için belge alabilir miyim? Dilekçe ile bölüm başkanlığına başvurarak belge alabilirsiniz."
+  },
+  {
+    "id": "yonerge_madde_1",
+    "source": "yonerge",
+    "topic": "Amaç",
+    "text": "Bu Yönergenin amacı; Balıkesir Üniversitesi Mühendislik-Mimarlık Fakültesi bünyesinde bulunan bölümlerdeki öğrencilerin eğitim öğretim programının zorunlu bir parçası olan staj faaliyetlerine ilişkin esasları düzenlemektir."
+  },
+  {
+    "id": "yonerge_madde_2",
+    "source": "yonerge",
+    "topic": "Dayanak",
+    "text": "Bu yönerge Balıkesir Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinin 4 üncü maddesi uyarınca hazırlanmıştır."
+  },
+  {
+    "id": "yonerge_madde_3",
+    "source": "yonerge",
+    "topic": "Kapsam",
+    "text": "Bu Yönerge Balıkesir Üniversitesi Mühendislik-Mimarlık Fakültesi öğrencilerinin staj çalışmasının genel esaslarını belirler. Bölümler; verdikleri eğitimin özelliklerine göre stajın hangi esaslarla yapılacağını gösteren “Staj Çalışma Esasları”nı hazırlar."
+  },
+  {
+    "id": "yonerge_madde_4",
+    "source": "yonerge",
+    "topic": "Staja Başlama Zamanı",
+    "text": "Balıkesir Üniversitesi Mühendislik-Mimarlık Fakültesi öğrencileri; en erken, eğitime başlamış oldukları yılın Bahar yarıyılı sonunda akademik takvimde belirtilen sınav tarihleri bitimi sonrası staj yapabilir. Staj başlama tarihleri ile ilgili olarak, bölüm başkanlıkları her yıl için bir staj takvimi hazırlayabilir."
+  },
+  {
+    "id": "yonerge_madde_5a",
+    "source": "yonerge",
+    "topic": "Staj Süresi - Yurtiçi",
+    "text": "Yurtiçi Staj: Staj süresi toplam en az kırk, en çok altmış işgünüdür. Resmi tatil günleri ve pazar günü staj süresinden sayılmaz, cumartesi günü staj yapılması bölüm staj komisyonu onayına tabidir. Toplam süre öğrencinin bağlı bulunduğu bölüm tarafından düzenlenen Staj Çalışma Esasları kapsamında eğitim özelliğine bağlı olarak uygulanır."
+  },
+  {
+    "id": "yonerge_madde_5b",
+    "source": "yonerge",
+    "topic": "Staj Süresi - Yurtdışı",
+    "text": "Yurtdışı Staj: Yurtdışı stajları, bölüm staj çalışma esaslarında belirtilen yurtiçi staj hükümlerine tabidir. Fakülte tarafından yapılmakta olan kaza sigortası işlemleri yurtdışı stajlarında uygulanmaz."
+  },
+  {
+    "id": "yonerge_madde_6_1",
+    "source": "yonerge",
+    "topic": "Staj Dönemi - Yasaklar",
+    "text": "Yaz okulu da dahil olmak üzere (Yaz okuluna katılan öğrenciler için) sınavlar ve eğitim-öğretim sırasında staj yapılamaz."
+  },
+   {
+    "id": "yonerge_madde_6_2",
+    "source": "yonerge",
+    "topic": "Staj Dönemi - Minimum Süre",
+    "text": "10 günden az staj yapılamaz."
+   },
+  {
+    "id": "yonerge_madde_6_3",
+    "source": "yonerge",
+    "topic": "Staj Dönemi - İstisna",
+    "text": "Ayrıca herhangi bir dönemde devamını alması gereken dersi bulunmayan öğrenciler sınav takvimleri haricinde ve bölüm başkanlığı tarafından belirlenen tarihler içerisinde olmak şartıyla dönem içinde staj yapabilir."
+  },
+  {
+    "id": "yonerge_madde_7a",
+    "source": "yonerge",
+    "topic": "Staj Yeri Belirleme",
+    "text": "Staj Yeri: Staj yeri öncelikle öğrenci tarafından belirlenir veya Fakülte; olanakları çerçevesinde staj yeri belirleyerek isteyen öğrencileri yönlendirebilir. İş yeri koşulları ilgili bölümce tetkik edilmek ve uygun görülmek kaydıyla öğrenciye staj onayı verilir. Öğrencinin bağlı bulunduğu bölüm başkanlığı tarafından her yıl belirlenecek kontenjan dahilinde, laboratuvarlar bünyesinde de staj yaptırılabilir."
+  },
+   {
+       "id": "yonerge_madde_7b_1",
+       "source": "yonerge",
+       "topic": "Staja Başlama - Evrak Onayı ve Teslimi",
+       "text": "Staja Başlama: Staj yapmak isteyen öğrenci, ilgili belgeleri bağlı olduğu bölümün staj komisyonuna onaylatır."
+   },
+  {
+    "id": "yonerge_madde_7b_2",
+    "source": "yonerge",
+    "topic": "Staja Başlama - Sigorta ve Belge Teslimi",
+    "text": "Fakülte bünyesinde kaza sigortası işlemleri tamamlandıktan sonra staj kabul formunun bir nüshasını ilgili bölüm sekreterliğine ve “İşe Giriş Bildirgesi” ni de staj yapacağı işyerine teslim eder."
+  },
+  {
+    "id": "yonerge_madde_7b_3",
+    "source": "yonerge",
+    "topic": "Staja Başlama - Süre Şartı",
+    "text": "Bu işlemlerin, staj başlama tarihinden en az 10 gün önce tamamlanması gerekir."
+  },
+  {
+      "id": "yonerge_madde_7b_4",
+      "source": "yonerge",
+      "topic": "Staja Başlama - Sicil Fişi ve Onay",
+      "text": "Öğrenci, fakülte tarafından formatı belirlenen staj sicil fişlerinin gerekli kısımlarını doldurup fakülte öğrenci işlerine onaylatır."
+  },
+  {
+      "id": "yonerge_madde_7b_5",
+      "source": "yonerge",
+      "topic": "Staja Başlama - Zamanında Teslim Etmeyenler",
+      "text": "İlan edilen staj takvimi içerisinde belgelerini teslim etmeyen öğrenciler staj yapamazlar."
+  },
+  {
+    "id": "yonerge_madde_7c_1",
+    "source": "yonerge",
+    "topic": "Stajın Yapılması - Bölüm Esasları",
+    "text": "Stajın Yapılması: Her bölüm kendi eğitim özelliğini dikkate alarak, staj yönergesine bağlı olarak hazırlamış olduğu “Staj Çalışma Esasları” dâhilinde staj yapılmasını ister."
+  },
+  {
+    "id": "yonerge_madde_7c_2",
+    "source": "yonerge",
+    "topic": "Stajın Yapılması - Staj Defteri",
+    "text": "Öğrenci staj defterini, staj döneminde bölümün belirlediği esaslara uygun olarak hazırlar. Öğrenci tarafından yapılan çalışmalar, mürekkepli kalemle, okunaklı biçimde ve mesleki terminolojiye dikkat edilerek hazırlanır. Staj bitiminde öğrenci bu defterin her sayfasını staj yaptığı iş yeri yetkilisine onaylatır."
+  },
+  {
+    "id": "yonerge_madde_7c_3",
+    "source": "yonerge",
+    "topic": "Stajın Yapılması - Kurallara Uyma",
+    "text": "Öğrenci, çalıştığı iş yerinin yasal ve idari kurallarına uymak zorundadır."
+  },
+  {
+    "id": "yonerge_madde_7c_4",
+    "source": "yonerge",
+    "topic": "Stajın Yapılması - Staj Sicil Belgesi",
+    "text": "Öğrencilerin staj yaptıkları iş yerlerindeki devam, çalışma ve başarıları ile tutum ve davranışlarını değerlendirmek üzere tanzim edilen “Staj Sicil Belgesi” öğrencinin staj yaptığı işyerince staj çalışması sonunda doldurulup onaylandıktan sonra Fakülteye gönderilmek üzere postalanır veya ilgili öğrenciye kapalı bir zarf içinde elden teslim edilir."
+  },
+  {
+    "id": "yonerge_madde_7ç",
+    "source": "yonerge",
+    "topic": "Stajın Denetlenmesi",
+    "text": "Stajın Denetlenmesi: Staj yapan öğrenciler gerektiğinde bağlı bulunduğu bölüm başkanlığının oluşturduğu “Denetleme Kurulu” tarafından denetlenir. Denetleme Kurulu öğrencinin staj yerinde yönergelere uygun koşullarda staj yapıp yapmadığını belirler. Bölüm Staj Komisyonu Denetleme Kurulu'nın olumlu / olumsuz raporu doğrultusunda karar alır."
+  },
+  {
+    "id": "yonerge_madde_7d",
+    "source": "yonerge",
+    "topic": "Staj Dosyasının Teslimi",
+    "text": "Staj Dosyasının Teslimi: Öğrenci tarafından hazırlanan staj dosyası; stajı izleyen yarıyılın ilk otuz günü içinde ilgili bölüm başkanlığına teslim edilir. Gecikme halinde staj dosyası kabul edilmez."
+  },
+  {
+    "id": "yonerge_madde_7e",
+    "source": "yonerge",
+    "topic": "Staj Komisyonu",
+    "text": "Staj Komisyonu: Fakülte Yönetim Kurulu, bir öğretim üyesi başkanlığında, en az iki öğretim elemanından oluşan ve üç yıl için seçilen “Bölüm Staj Komisyonu”nu oluşturur. Bu komisyon, staj işlemlerinin yürütülmesi ve stajların değerlendirilmesinde yetkilidir."
+  },
+  {
+    "id": "yonerge_madde_7f",
+    "source": "yonerge",
+    "topic": "Stajın İncelenmesi",
+    "text": "Staj: “Bölüm Staj Komisyonu'nca incelenir. Komisyon, gerekli gördüğü hallerde bölüm başkanının onayı ile ilgili öğretim elemanlarının görüşünü de alabilir."
+  },
+  {
+    "id": "yonerge_madde_7g_1",
+    "source": "yonerge",
+    "topic": "Stajın Değerlendirilmesi - Kabul/Red",
+    "text": "Stajın Değerlendirilmesi: Komisyon, staj çalışmalarının sonuçlandırılmasında kabul veya red değerlendirmesi yapar. İlgili stajın bir bölümünün red edilerek tekrarlanması istenebilir."
+  },
+  {
+      "id": "yonerge_madde_7g_2",
+      "source": "yonerge",
+      "topic": "Stajın Değerlendirilmesi - Eksiklik ve Tekrar",
+      "text": "Eksikliğin giderilmesinde, 5 inci Madde'de yer alan minimum 10 gün staj yapabilme şartı aranmaz."
+  },
+  {
+      "id": "yonerge_madde_7g_3",
+      "source": "yonerge",
+      "topic": "Stajın Değerlendirilmesi - Geçiş Yapan Öğrenciler",
+      "text": "Yatay ve dikey geçiş öğrencilerinin daha önce yapmış oldukları stajların değerlendirilme esasları ilgili bölümce belirlenir."
+  },
+  {
+    "id": "yonerge_madde_7ğ",
+    "source": "yonerge",
+    "topic": "Sonuçların Açıklanması ve İtiraz",
+    "text": "Sonuçların Açıklanması: Staj değerlendirme sonuçları, staj dosyasının teslim alındığı yarıyıl sonu sınav tarihinden en geç on beş gün önce açıklanır. Staj değerlendirme sonucuna itirazlar, ilan edildiği tarihten itibaren, beş iş günü içinde ilgili bölüm başkanlığına dilekçe ile yapılır."
+  },
+  {
+    "id": "yonerge_madde_7h",
+    "source": "yonerge",
+    "topic": "Cezalar",
+    "text": "Cezalar: Öğrenci, staj ile ilgili yaptığı usulsüz iş ve işlemlerinden doğabilecek cezalardan kendisi sorumludur. Staj evraklarının incelenmesi sonucunda, staj belgelerinde, staj defterinde ve ekli belgelerde tahrifat veya usulsüzlük yapan ve ayrıca, çalışma yapmadığı halde staj defteri düzenleyip teslim ettiği belirlenen öğrenciler hakkında, Yükseköğretim Kurumları Öğrenci Disiplin Yönetmeliği çerçevesinde soruşturma açılır."
+  },
+  {
+    "id": "yonerge_madde_8",
+    "source": "yonerge",
+    "topic": "Yürürlükten Kaldırılan Hüküm",
+    "text": "Yürürlükten kaldırılan hüküm: 28/02/2002 tarihli ve 2002/02-04 Sayılı Senato Kararı ile kabul edilen Balıkesir Üniversitesi Mühendislik Mimarlık Fakültesi Staj yönergesi yürürlükten kaldırılmıştır."
+  },
+  {
+    "id": "yonerge_madde_9",
+    "source": "yonerge",
+    "topic": "Yürürlük",
+    "text": "Yürürlük: Bu Yönerge hükümleri Senato'da kabul edildiği tarihten itibaren yürürlüğe girer."
+  },
+  {
+    "id": "yonerge_madde_10",
+    "source": "yonerge",
+    "topic": "Yürütme",
+    "text": "Yürütme: Bu Yönerge hükümlerini, Balıkesir Üniversitesi Mühendislik-Mimarlık Fakültesi Dekanı yürütür."
+  },
+  {
+    "id": "sunum_slide_3_fakulte_link",
+    "source": "sunum",
+    "topic": "Fakülte Staj Sayfası Linki",
+    "text": "Fakülte Staj Sayfası: https://www.balikesir.edu.tr/site/icerik/muhendislik-fakultesi-1122"
+  },
+  {
+    "id": "sunum_slide_3_bolum_link",
+    "source": "sunum",
+    "topic": "Bölüm Staj Sayfası Linki",
+    "text": "Bölüm Staj Sayfası: https://www.balikesir.edu.tr/site/icerik/bilgisayar-muhendisligi-bolumu-3354"
+  },
+   {
+       "id": "sunum_slide_3_takip",
+       "source": "sunum",
+       "topic": "Sayfaları Takip Etme",
+       "text": "Mutlaka tüm duyuru açıklama vb. için fakülte ve bölüm staj sayfalarını takip ediniz ve inceleyiniz."
+   },
+  {
+    "id": "sunum_slide_4_genel_bilgi_1",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - Staj Süresi ve Sayısı",
+    "text": "Balıkesir Üniversitesi Bilgisayar Mühendisliği öğrencileri 20 şer günlük 2 staj yapmak zorundadır."
+  },
+  {
+    "id": "sunum_slide_4_genel_bilgi_2",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - Uygun Zaman",
+    "text": "Öğrencilerin 1. stajlarını 2. sınıftan 2. stajlarını ise 3. sınıftan sonra yaz döneminde yapmaları en uygun olan zamandır."
+  },
+  {
+    "id": "sunum_slide_4_genel_bilgi_3",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - Diğer Zamanlar",
+    "text": "Bunun dışında şartları sağlamak kaydıyla dönem içinde ya da 4. sınıftan sonra da stajlarını yapabilirler."
+  },
+  {
+    "id": "sunum_slide_4_genel_bilgi_4",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - Yer Bulma Sorumluluğu",
+    "text": "Staj yerinin bulunması hakkında tüm sorumluluk öğrenciye aittir."
+  },
+  {
+    "id": "sunum_slide_4_genel_bilgi_5",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - İşyeri Faaliyeti",
+    "text": "Staj yapılacak işyerinde mutlaka yazılım veya donanım alanında Bilgisayar Mühendisliği faaliyeti yürütülmelidir."
+  },
+  {
+    "id": "sunum_slide_4_genel_bilgi_6",
+    "source": "sunum",
+    "topic": "Genel Bilgiler - Sorumlu Mühendis",
+    "text": "Ayrıca işyerinde mutlaka Bilgisayar/Yazılım Mühendisi ya da belirtilen alanda faaliyet gösteren farklı branşlardan bir sorumlu mühendis bulunmalıdır."
+  },
+   {
+       "id": "sunum_slide_5_surec_adimlar",
+       "source": "sunum",
+       "topic": "Adım Adım Staj Süreci",
+       "text": "Adım Adım Staj Süreci: İşyeri Bulma, Evrak, SGK, OBS, Staj Sicil Fişi ve Staj Defteri."
+   },
+  {
+    "id": "sunum_slide_6_isyeri_bulma_1",
+    "source": "sunum",
+    "topic": "İşyeri Bulma - Sorumluluk",
+    "text": "Staj yerinin bulunması hakkında tüm sorumluluk öğrenciye aittir."
+  },
+  {
+    "id": "sunum_slide_6_isyeri_bulma_2",
+    "source": "sunum",
+    "topic": "İşyeri Bulma - Alan Şartı",
+    "text": "Staj yapılacak işyerinde mutlaka yazılım veya donanım alanında Bilgisayar Mühendisliği faaliyeti yürütülmelidir."
+  },
+  {
+    "id": "sunum_slide_6_isyeri_bulma_3",
+    "source": "sunum",
+    "topic": "İşyeri Bulma - Mühendis Şartı",
+    "text": "Ayrıca işyerinde mutlaka Bilgisayar/Yazılım Mühendisi ya da belirtilen alanda faaliyet gösteren farklı branşlardan bir sorumlu mühendis bulunmalıdır."
+  },
+  {
+    "id": "sunum_slide_6_isyeri_bulma_4",
+    "source": "sunum",
+    "topic": "İşyeri Bulma - Zorunluluk Belgesi",
+    "text": "Eğer talep edilirse işyerine stajınızın zorunlu olduğunu gösteren belgeyi sunabilirsiniz: https://www.balikesir.edu.tr/upload/202202211244/files/Staj_Zorunluluk_Belgesi.pdf"
+  },
+  {
+    "id": "sunum_slide_6_isyeri_bulma_5",
+    "source": "sunum",
+    "topic": "İşyeri Bulma - Uygunluk Kararı",
+    "text": "İşyerinizin staj yapmaya uygun olup olmadığına karar verme yetkisi staj komisyonuna aittir."
+  },
+  {
+    "id": "sunum_slide_7_evrak_1_1",
+    "source": "sunum",
+    "topic": "Evrak - EK-1 Doldurma",
+    "text": "Staj yeri belirlendikten sonra EK-1 Zorunlu Yaz Stajı Kabul Formu indirilerek öğrenci tarafından doldurulmalıdır."
+  },
+   {
+       "id": "sunum_slide_7_evrak_1_2",
+       "source": "sunum",
+       "topic": "Evrak - EK-1 Yaz Stajı Link",
+       "text": "Fakülte Staj Sayfası (Yaz Stajı Formu): https://www.balikesir.edu.tr/upload/202206010804/files/EK-1%202022_Zorunlu_Staj_Kabul_Formu_Yaz_Staji.docx"
+   },
+  {
+    "id": "sunum_slide_7_evrak_1_3",
+    "source": "sunum",
+    "topic": "Evrak - EK-1 Dönem İçi",
+    "text": "Dönem içi staj yapacak öğrenciler yukarıdaki dosya yerine Fakülte Staj Sayfasından ilgili dosyayı indirmelidir: https://www.balikesir.edu.tr/upload/202205311348/files/EK-1%202022%20Zorunlu%20Staj%20Kabul%20Formu_D%C3%B6nem_%C4%B0%C3%A7i.docx"
+  },
+  {
+    "id": "sunum_slide_7_evrak_2_1",
+    "source": "sunum",
+    "topic": "Evrak - İşyeri Kaşe İmza",
+    "text": "Öğrenci formu doldurduktan sonra işyerine ilgili alanları doldurtarak Kaşe ile İmza attırmalıdır."
+  },
+  {
+    "id": "sunum_slide_7_evrak_2_2",
+    "source": "sunum",
+    "topic": "Evrak - Tarihler ve İş Günü Sayısı",
+    "text": "Staj başlama ve bitiş tarihleri, staj yapılacak iş günü sayısı bu belgelerde doğru şekilde doldurulmalıdır. Özellikle resmi tatillere dikkat edilmelidir."
+  },
+  {
+    "id": "sunum_slide_7_evrak_2_3",
+    "source": "sunum",
+    "topic": "Evrak - Başlangıç Günü",
+    "text": "Stajların çok özel bir durum yoksa Pazartesi günü başlatılmasına dikkat edilmelidir."
+  },
+  {
+    "id": "sunum_slide_7_evrak_3_1",
+    "source": "sunum",
+    "topic": "Evrak - EK-2 (Ücretli Staj)",
+    "text": "Öğrenci ayrıca Fakülte Staj Sayfasında yer alan aşağıdaki belgeleri de duruma göre doldurmalıdır. Eğer öğrenci stajdan ücret alacaksa EK 2 belgesini doldurmalıdır: EK-2 Öğrenci-İşveren Staj Sözleşmesi (Staj Ücretlerine İşsizlik Fonu Katkısı) Bilgi Formu"
+  },
+  {
+    "id": "sunum_slide_7_evrak_3_2",
+    "source": "sunum",
+    "topic": "Evrak - EK-3 (Her Durumda)",
+    "text": "EK-3 her durumda doldurulmalıdır. Ancak ücret alınıyor veya alınmıyorsa doldurulacak alanlar farklılık göstermektedir: EK-3 MF Staj ve Staj Ücretlerine İşsizlik Fonu Katkı Listesi"
+  },
+  {
+    "id": "sunum_slide_7_evrak_4_1",
+    "source": "sunum",
+    "topic": "Evrak - Online Form ve Yükleme",
+    "text": "Bu formlar eksiksiz olarak doldurulduktan sonra Bölüm Staj Sayfasında yer alan online form doldurulmalı ve bu dosyalarda yüklenmelidir."
+  },
+  {
+    "id": "sunum_slide_7_evrak_4_2",
+    "source": "sunum",
+    "topic": "Evrak - Zamanlama (En Geç/En Erken)",
+    "text": "Buraya kadarki işlemlerin staja başlama tarihinden en geç 15 gün önce, en erken 30 gün önce yapılması gerektiği unutulmamalıdır."
+  },
+  {
+    "id": "sunum_slide_8_evrak2_1",
+    "source": "sunum",
+    "topic": "Evrak - Komisyon Onayı",
+    "text": "Çevrimiçi form eksiksiz olarak doldurulup gönderildikten sonra Staj Komisyonunun onayı beklenmelidir."
+  },
+  {
+    "id": "sunum_slide_8_evrak2_2",
+    "source": "sunum",
+    "topic": "Evrak - Onaylı EK-1 Geri Gönderimi",
+    "text": "Staj komisyonu EK-1 Zorunlu Yaz Stajı Kabul Formunun öğrenci ve işyeri tarafından doldurulmuş halini onaylayıp imzalayarak size belirttiğiniz eposta adresinden geri gönderecektir."
+  },
+  {
+    "id": "sunum_slide_8_evrak2_3",
+    "source": "sunum",
+    "topic": "Evrak - Onayın Anlamı",
+    "text": "Bu artık stajınızı belirttiğiniz işyerinde yapabileceğiniz anlamına gelmektedir."
+  },
+  {
+    "id": "sunum_slide_8_evrak2_4",
+    "source": "sunum",
+    "topic": "Evrak - Onay Gecikmesi",
+    "text": "Eğer stajınızın başlamasına 10 gün kala hala size onay epostası gelmediyse staj komisyonu ile acilen iletişime geçiniz."
+  },
+  {
+    "id": "sunum_slide_9_sgk_1",
+    "source": "sunum",
+    "topic": "SGK - Kontrol Zamanı ve Yeri",
+    "text": "Stajınızın başlamasına 3 gün kala E-Devlette; 4A İşe Giriş Çıkış Bildirimi (Sosyal Güvenlik Kurumu) bölümüne girin ve sigorta belgenizi kontrol edin."
+  },
+  {
+    "id": "sunum_slide_9_sgk_2",
+    "source": "sunum",
+    "topic": "SGK - Belge Yoksa İletişim",
+    "text": "Eğer belge yoksa acilen staj komisyonu ile iletişime geçiniz. SGK giriş yapılmadan staj yapamazsınız."
+  },
+  {
+    "id": "sunum_slide_10_obs_1",
+    "source": "sunum",
+    "topic": "OBS - Bilgi Girişi",
+    "text": "Sigorta belgeniz oluştuktan sonra OBS'de staj kısmına yapılacak stajın bilgileri girilmelidir."
+  },
+  {
+    "id": "sunum_slide_10_obs_2",
+    "source": "sunum",
+    "topic": "OBS - Onayın Etkisi",
+    "text": "OBS'deki stajın onaylanması veya başvurunun onaylanıp onaylanmaması staj yapma durumunu etkilememektedir."
+  },
+  {
+    "id": "sunum_slide_10_obs_3",
+    "source": "sunum",
+    "topic": "OBS - Onay Zamanı",
+    "text": "Staj onayı veya başvuru onayı stajdan sonra da verilebilir."
+  },
+  {
+    "id": "sunum_slide_11_sicil_fisi_1",
+    "source": "sunum",
+    "topic": "Staj Sicil Fişi - Doldurma Zamanı",
+    "text": "Tüm onaylamalar yapıldıktan sonra Staj Sicil Fişinizi doldurunuz."
+  },
+  {
+    "id": "sunum_slide_11_sicil_fisi_2",
+    "source": "sunum",
+    "topic": "Staj Sicil Fişi - Mühür Durumu",
+    "text": "Bu yıl uzaktan eğitimden dolayı Staj Sicil Fişinin mühürlenmesi gerekmemektedir."
+  },
+  {
+    "id": "sunum_slide_11_sicil_fisi_3",
+    "source": "sunum",
+    "topic": "Staj Sicil Fişi - Firma İsterse İmza",
+    "text": "Eğer firma isterse Staj Sicil Fişinin imzalanması için eposta ile staj komisyonuna gönderiniz."
+  },
+  {
+    "id": "sunum_slide_11_defter_1",
+    "source": "sunum",
+    "topic": "Staj Defteri - Düzenli Doldurma",
+    "text": "Stajınızı yaparken staj defterinizi de düzenli olarak doldurmayı unutmayınız."
+  },
+  {
+    "id": "sunum_slide_11_defter_2",
+    "source": "sunum",
+    "topic": "Staj Defteri - Günlük Sayfa Sayısı",
+    "text": "Staj defterinizde her staj günü için en az 1 sayfa doldurulmalıdır."
+  },
+  {
+    "id": "sunum_slide_11_defter_3",
+    "source": "sunum",
+    "topic": "Staj Defteri - Kapak Şablonu",
+    "text": "Staj defterinin kapağı için şablon: https://www.balikesir.edu.tr/upload/202302161423/files/STJKapak2020.docx"
+  },
+  {
+    "id": "sunum_slide_11_defter_4",
+    "source": "sunum",
+    "topic": "Staj Defteri - Sayfa Şablonu",
+    "text": "Staj defterinin her bir sayfası için şablon: https://www.balikesir.edu.tr/upload/202302161424/files/STJSayfa2020.docx. Şablonları kullanınız."
+  },
+  {
+    "id": "sunum_slide_11_defter_5",
+    "source": "sunum",
+    "topic": "Staj Defteri - İmza ve Kaşe",
+    "text": "Staj defterinin her bir sayfasının işyeri sorumlusu tarafından imzalanması ve kaşelenmesi gerekmektedir."
+  },
+  {
+    "id": "sunum_slide_11_defter_6",
+    "source": "sunum",
+    "topic": "Staj Defteri - Yazı Tipi ve Boyutu",
+    "text": "Staj defteri doldurulurken 12 punto Arial/Calibri/Tahoma/Times New Roman yazıtiplerinden biri kullanılmalıdır."
+  },
+  {
+    "id": "sunum_slide_11_defter_7",
+    "source": "sunum",
+    "topic": "Staj Defteri - İçerik",
+    "text": "Staj defteri doldurulurken fotoğraf ve ekran görüntüleri, yazılım kodları vb. kullanılabilir."
+  },
+  {
+    "id": "sunum_slide_12_teslim_1",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - Zaman ve Yer",
+    "text": "Stajı tamamladıktan sonra en geç iki ay içerisinde Staj Sicil Fişi zarfınız ve Staj Defterini Bölüm Sekreterliğine teslim ediniz."
+  },
+  {
+    "id": "sunum_slide_12_teslim_2",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - Sicil Fişi",
+    "text": "STAJ SİCİL FİŞİ firmaya teslim edildikten sonra Firma tarafından doldurulmalı ve zarf içine konarak kaşe yada mühür ile kapatılmalıdır."
+  },
+  {
+    "id": "sunum_slide_12_teslim_3",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - İki Staj",
+    "text": "Eğer iki staj yaptıysanız ikisini birlikte teslim edebilirsiniz."
+  },
+  {
+    "id": "sunum_slide_12_teslim_4",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - Değerlendirme Süreci",
+    "text": "Defterler belirli aralıklarla Staj Komisyonu tarafından değerlendirilecektir."
+  },
+  {
+    "id": "sunum_slide_12_teslim_5",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - OBS Yansıması",
+    "text": "Teslim ettiğiniz gibi OBS de karşılığını göremeyebilirsiniz."
+  },
+  {
+    "id": "sunum_slide_12_teslim_6",
+    "source": "sunum",
+    "topic": "Staj Defteri Teslim - Sorunlar ve İletişim",
+    "text": "Staj defteriniz ya da stajınız ile ilgili bir sorun varsa Staj Komisyonu tarafından sizinle eposta/Teams vb. yöntemlerle iletişime geçilecektir."
+  },
+  {
+       "id": "sunum_slide_13_genel_uyari",
+       "source": "sunum",
+       "topic": "Genel Uyarı - Önce Oku",
+       "text": "LÜTFEN HEMEN SORU SORMAK YERİNE STAJ İLE İLGİLİ BÜTÜN BELGELERİ ÖNCELİKLE OKUYUNUZ. SON OLARAK DA BU SAYFADAN SONRAKİ BİLGİLENDİRMELERİ OKUYUNUZ."
+   },
+  {
+    "id": "sunum_slide_14_bilgilendirme_1",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Zorunlu Süre",
+    "text": "Bilgisayar Mühendisliği Bölümünde toplam zorunlu staj süresi 40 iş günüdür, gönüllü staj olanağı bölümümüzde bulunmamaktadır."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_2",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Dönem İçi Staj",
+    "text": "Güz ve Bahar dönemi içerisinde haftada en az üç gün staj yapma imkanı bulunmaktadır (Cumartesi dahil olabilir.) Ancak staj yapılacak günlerde devam zorunluluğu bulunan dersin olmaması gerekmektedir. Dönem içerisinde staj yapılması hususunda diğer bilgileri BAÜN staj yönergesinde bulabilirsiniz."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_3",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Aynı Dönemde İki Staj Başvurusu",
+    "text": "Eğer 2 ayrı stajı aynı dönemde yapacaksanız 2 ayrı başvuru yapmanız gerekmektedir."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_4",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Mezuniyet (Sadece Staj)",
+    "text": "Mezun durumunda olup bütün derslerinden geçmiş sadece stajı kalmış öğrenciler bütün yıl içinde staj yapabilirler."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_5",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Mezuniyet (FF'li Ders)",
+    "text": "Mezun durumunda olup FF'li (devam zorunluluğu olmayan ve tüm derslerini almış) dersleri olan öğrenciler sınav takvimleri (ara sınav, dönem sonu sınavları ve tek ders sınavları) hariç staj yapabilir."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_6",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Sigorta Başvurusu ve İmza",
+    "text": "Sigorta başvurusu için bölüm sitemizdeki bağlantı kullanılmalı ve belgeler buraya yüklenmelidir. Yüklenecek belgelerde öğrenci ve işletmelerin imzalarının olması zorunludur."
+  },
+  {
+    "id": "sunum_slide_14_bilgilendirme_7",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - İş Günü Hesabı ve Cumartesi",
+    "text": "Staj gününün hesaplanmasında bir hafta beş iş günü olarak kabul edilir. Eğer işletme Cumartesi günleri çalışıyorsa bu gün de iş günü olarak kabul edilir. Ancak bu durumda işletmenin cumartesi günü de çalıştığına ilişkin durum staj sicil fişinde belirtilmelidir."
+  },
+   {
+       "id": "sunum_slide_14_bilgilendirme_8",
+       "source": "sunum",
+       "topic": "Genel Bilgilendirme - Dönem İçi Staj ve Dersler",
+       "text": "Hafta içinde derslerinin olmadığı günlerde staj yapacak öğrenciler haftada en az üç gün staj yapabilirler. Zorunlu staj kabul formunda doğru günler işaretlenmelidir."
+   },
+  {
+    "id": "sunum_slide_15_bilgilendirme_1",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Mezun Öğrenci Defter Teslimi",
+    "text": "Staj bittikten sonra mezun durumundaki öğrenciler defterlerini komisyona hemen teslim edebilirler ve hızlı değerlendirilmesi için komisyondan istekte bulunabilirler."
+  },
+  {
+    "id": "sunum_slide_15_bilgilendirme_2",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Staj Başlangıcı ve Hesaplama",
+    "text": "Stajlar olağanüstü bir durum yoksa Pazartesi başlamak zorundadır. Staj günlerini hesap ederken resmi tatilleri ve bir gün öncesi yarım gün çalışıldığını da dikkate almayı unutmayınız. 1 gün fazla olsa da olur, eksik olmamalıdır."
+  },
+  {
+    "id": "sunum_slide_15_bilgilendirme_3",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Danışmana Soru Sorma",
+    "text": "Danışmanına ya da Staj komisyonu üyelerine “Evraklarım tamam mı? “Staja başlayayım mı?\" ve benzeri sorular sormadan önce eposta adresinize bakmayı ve belgeleri okumayı unutmayınız."
+  },
+  {
+    "id": "sunum_slide_15_bilgilendirme_4",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - İki Staj Aynı Firma",
+    "text": "2 stajın da aynı firmada yapması uygun görülmemektedir. Ancak zaruri durumlarda kabul edilebilir."
+  },
+  {
+    "id": "sunum_slide_15_bilgilendirme_5",
+    "source": "sunum",
+    "topic": "Genel Bilgilendirme - Yurtdışı Staj ve SGK",
+    "text": "***YURT DIŞINDA YAPILACAK OLAN STAJLARDA “SGK” GİRİŞİ İSTENMEMEKTEDİR. BÖLÜM ONAYI YETERLİDİR.***"
+  },
+  {
+    "id": "sunum_slide_16_iletisim_1",
+    "source": "sunum",
+    "topic": "İletişim - Hüseyin Ezirmik",
+    "text": "Staj Komisyonu İletişim: huseyin.ezirmik@balikesir.edu.tr"
+  },
+  {
+    "id": "sunum_slide_16_iletisim_2",
+    "source": "sunum",
+    "topic": "İletişim - Hüseyin Güneş",
+    "text": "Staj Komisyonu İletişim: hgunes@balikesir.edu.tr"
+  }
+]

@@ -1,70 +1,62 @@
+import { OpenAI } from 'openai';
 import { NextResponse } from 'next/server';
-import path from 'path';
-import { promises as fs } from 'fs';
+import knowledgeBase from '../../../../lib/chat/knowledgeBase.json';
 
-const HF_API_URL = "https://api-inference.huggingface.co/models/impira/layoutlm-document-qa";
-const HF_API_KEY = process.env.HUGGINGFACE_API_KEY!;
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-// 👇 Yeni Type tanımı
-type FAQItem = {
-  question: string;
-  answer: string;
-  tags?: string[];
-};
+// Örnek benzerlik fonksiyonu (embedding kullanılmadan basit eşleşme için)
+function keywordMatch(input: string, item: any): number {
+  const question = input.toLowerCase();
+  const haystack = `${item.question} ${item.answer} ${item.topic ?? ''}`.toLowerCase();
+  return haystack.includes(question) ? 1 : 0.5;
+}
+
+// En ilgili 5 bilgi parçasını seç
+function getTopRelevantItems(input: string, count: number = 5) {
+  const scored = knowledgeBase.map(item => ({
+    ...item,
+    score: keywordMatch(input, item),
+  }));
+  return scored
+    .filter(i => i.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, count);
+}
 
 export async function POST(req: Request) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 saniyelik timeout
+  const userInput = await req.text();
 
-  try {
-    const userMessage = await req.text();
-    const filePath = path.join(process.cwd(), 'lib', 'chat', 'chat_knowledge_full.json');
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const faqData = JSON.parse(fileContent);
-
-    const normalizedMessage = userMessage.toLowerCase();
-
-    // 👇 Burada tip cast yapıyoruz
-    const matchedItem = (faqData as FAQItem[]).find((item) => {
-      const questionMatch = item.question.toLowerCase().includes(normalizedMessage);
-      const tagMatch = item.tags?.some((tag) =>
-        normalizedMessage.includes(tag.toLowerCase())
-      );
-      return questionMatch || tagMatch;
-    });
-
-    const fallbackText =
-      'Bu konuda elimde bilgi bulunmuyor. Danışman hocanıza veya mfstaj@balikesir.edu.tr adresine danışabilirsiniz.';
-
-    const baseAnswer = matchedItem ? matchedItem.answer : fallbackText;
-
-    // Hugging Face prompt'u oluştur
-    const prompt = `Aşağıdaki cevabı daha doğal, yardımsever ve samimi bir sohbet diliyle açıkla:\n\nCevap: ${baseAnswer}\n\nYeni Cevap:`;
-
-    const response = await fetch(HF_API_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${HF_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ inputs: prompt }),
-      signal: controller.signal, // Timeout sinyali
-    });
-
-    clearTimeout(timeoutId); // Timeout işlemini temizle
-
-    if (!response.ok) throw new Error("Hugging Face API yanıt vermedi");
-
-    const result = await response.json();
-    const generatedText =
-      result?.[0]?.generated_text?.split("Yeni Cevap:")[1]?.trim() || baseAnswer;
-
-    return NextResponse.json({ reply: generatedText });
-  } catch {
-    console.error("Chat API error"); // artık catch içinde error parametresi vermiyoruz
-    return NextResponse.json(
-      { reply: "Bir hata oluştu. Lütfen tekrar deneyin." },
-      { status: 500 }
-    );
+  if (!userInput || userInput.trim().length < 2) {
+    return NextResponse.json({ reply: 'Lütfen daha açıklayıcı bir soru sorun.' }, { status: 400 });
   }
+
+  // En alakalı verileri al
+  const relevantItems = getTopRelevantItems(userInput);
+  const context = relevantItems.map((item, index) => {
+    return `Bilgi ${index + 1} - Kaynak: ${item.source}\n${item.question ? `Soru: ${item.question}\nCevap: ${item.answer}` : item.text}\n`;
+  }).join('\n');
+
+  const chatCompletion = await openai.chat.completions.create({
+    model: 'gpt-4o',
+    messages: [
+      {
+        role: 'system',
+        content: `Sen Balıkesir Üniversitesi Bilgisayar Mühendisliği öğrencilerine staj süreçleri hakkında yardımcı olan bir danışmansın. Cevaplarını sadece aşağıdaki bilgiler ışığında ver. Bilgi dışında yorum yapma. Bilgi net değilse "bölüm staj sayfasını inceleyin" de.\n\n${context}`,
+      },
+      {
+        role: 'user',
+        content: userInput,
+      },
+    ],
+    temperature: 0.3,
+  });
+
+  const reply = chatCompletion.choices[0]?.message?.content ?? 'Cevap üretilemedi.';
+  return NextResponse.json({ reply });
+}
+
+export async function GET() {
+  return NextResponse.json({ message: 'Chat API çalışıyor.' });
 }

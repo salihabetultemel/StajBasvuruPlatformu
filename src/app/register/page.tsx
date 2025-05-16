@@ -83,6 +83,17 @@ export default function Register() {
             className="w-full p-2 border border-gray-300 rounded-lg"
           />
         </div>
+        <label htmlFor="consent" className="text-sm text-gray-700 dark:text-gray-200">
+          <a
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
+          >
+            Aydınlatma Metni’ni
+          </a>{' '}
+          okudum ve kişisel verilerimin işlenmesini kabul ediyorum.
+        </label>
 
         <button
           onClick={handleRegister}
