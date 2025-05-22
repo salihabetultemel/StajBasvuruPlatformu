@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { User, Info, LogOut, Sun, Moon, MessageSquare, FileText, Home, HelpCircle } from "lucide-react";
+import { Sun, Moon, FileText, Home, HelpCircle } from "lucide-react";
 
 export type SidebarMenuProps = {
   isOpen: boolean;

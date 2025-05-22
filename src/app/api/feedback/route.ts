@@ -79,7 +79,7 @@ export async function POST(request: Request) {
 
   } catch (err) {
     // İstek işleme sırasında beklenmedik bir hata olursa (örn: JSON parse hatası) yakala
-    console.error("API Route Hatası:", err);
+    console.error("API e Hatası:", err);
     // İstemciye genel bir sunucu hatası mesajı döndür
     return NextResponse.json({ error: 'İstek işlenirken beklenmedik bir hata oluştu.' }, { status: 500 });
   }

@@ -1,13 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../../../components/navbar";
 import SidebarMenu from "../../../components/sidebarmenu";
-import PrivacyModal from '../../../components/PrivacyModal';
 
 export default function Home() {
-  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; text: string }[]>([]);
   const [input, setInput] = useState("");
@@ -49,26 +46,24 @@ export default function Home() {
 
   return (
     <div className="bg-[var(--background)] text-[var(--foreground)] min-h-screen flex">
-      <PrivacyModal />
       <SidebarMenu isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="flex-1 flex flex-col">
         <div className="bg-[var(--card-bg)] bg-opacity-90 fixed top-0 left-0 w-full z-50 border-b border-[var(--border-color)]">
           <Navbar toggleSidebar={toggleSidebar} />
         </div>
 
-        {/* Staj Belgeleri */}
         <div className="w-full max-w-3xl mx-auto mt-28 px-4 pb-10">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-300 dark:border-gray-700">
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-white">📄 Staj İşlemleri </h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-white">📄 Staj İşlemleri</h2>
             <p className="mb-4 text-gray-800 dark:text-gray-200">
               Öğrencilerimiz staj başvurularını web sitemiz üzerinden aşağıdaki bağlantıyı kullanarak yapacaklardır. E-posta yoluyla yapılan başvurular değerlendirilmemektedir.
               <br />
               <br />
-              Staj yapmadan önce gerekli bilgileri edinmek için Staj Yönergesi ve Staj El Kitabı'nın okunması gerekmektedir.
+              Staj yapmadan önce gerekli bilgileri edinmek için Staj Yönergesi ve Staj El Kitabı okunmalıdır.
             </p>
             <ul className="list-disc space-y-3 list-inside text-gray-800 dark:text-gray-200">
               <li>
-                Staj hakkında detaylı bilgiler içeren ve staj yapmadan önce okunması gereken Staj El Kitabı için {" "}
+                Staj hakkında detaylı bilgiler içeren ve staj yapmadan önce okunması gereken Staj El Kitabı için{" "}
                 <a href="/staj_belgeleri/StajElKitabi.pdf" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
               <li>
@@ -82,36 +77,34 @@ export default function Home() {
                   tıklayınız
                 </a>.
               </li>
-
               <li>
-                Staj Yönergesini görüntülemek için {" "}
+                Staj Yönergesini görüntülemek için{" "}
                 <a href="/staj_belgeleri/stajyönergesi.pdf" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
               <li>
-                Staj zorunluluk belgesini indirmek için {" "}
+                Staj zorunluluk belgesini indirmek için{" "}
                 <a href="/staj_belgeleri/Stajzorunlulukbelgesi.pdf" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
               <li>
-                Staj sicil fişi için {" "}
+                Staj sicil fişi için{" "}
                 <a href="/staj_belgeleri/StajSicilFisi.docx" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
               <li>
-                Staj dosyası oluşturulurken kullanılacak kapak için {" "}
+                Staj dosyası oluşturulurken kullanılacak kapak için{" "}
                 <a href="/staj_belgeleri/Stajdosyakapagi.docx" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
               <li>
-                Staj dosyasında kullanılacak sayfalar için {" "}
+                Staj dosyasında kullanılacak sayfalar için{" "}
                 <a href="/staj_belgeleri/stajdosyasindakullanilacaksayfalar.docx" target="_blank" className="text-blue-600 underline hover:text-blue-800 transition-colors">tıklayınız</a>.
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Chatbot Akordeon */}
         <div className="w-full max-w-3xl mx-auto mt-10 px-4 pb-16">
           <details className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border border-gray-300 dark:border-gray-700">
             <summary className="text-lg font-semibold text-[#9f569f] cursor-pointer">
-              🤖 Staj ile ilgili sorularınız için Chatbotu kullanabilirsiniz !
+              🤖 Staj ile ilgili sorularınız için Chatbotu kullanabilirsiniz!
             </summary>
             <div className="mt-4 flex flex-col bg-[var(--card-bg)] text-[var(--card-text)] border border-[var(--border-color)] rounded-md p-4">
               <div className="h-[400px] overflow-y-auto space-y-2">
