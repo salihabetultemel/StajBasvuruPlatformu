@@ -15,35 +15,36 @@ export default function DocumentPage() {
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
-    tcKimlik: "33303602036",
-    adSoyad: "ali",
-    dogumTarihi: "2002-01-20",
-    ogrenciNo: "232315603459",
-    bolum: "bilg müh",
-    eposta: "ali@gmial.com",
-    telefon: "5562362365",
-    stajYeri: "akdlsjds",
-    faaliyetAlani: "yazuılm",
-    baslangicTarihi: "2025-07-07",
-    bitisTarihi: "2025-08-04",
-    calisanSayisi: "5",
-    muhendisSayisi: "5",
-    isverenAdi: "ldldl",
-    isverenGorevi: "müh",
-    isverenEposta: "müh@gmail.com",
-    isverenTelefon: "5562365623",
-    faksNo: "1313131313131",
-    stajUcreti: "3000",
-    firmaVergiNo: "142526524256",
-    vergiDairesi: "ist",
-    firmaAdi: "akakaka",
-    firmaAdres: "aldksdkşskdşa",
-    firmaTelefon: "5556662323",
-    firmaBanka: "aknank",
-    firmaIBAN: "tr6464654646644",
-    stajYeritelefon: "5551234567",
-    stajyerieposta: "ali.staj@firma.com",
+    tcKimlik: "",
+    adSoyad: "",
+    dogumTarihi: "",
+    ogrenciNo: "",
+    bolum: "",
+    eposta: "",
+    telefon: "",
+    stajYeri: "",
+    faaliyetAlani: "",
+    baslangicTarihi: "",
+    bitisTarihi: "",
+    calisanSayisi: "",
+    muhendisSayisi: "",
+    isverenAdi: "",
+    isverenGorevi: "",
+    isverenEposta: "",
+    isverenTelefon: "",
+    faksNo: "",
+    stajUcreti: "",
+    firmaVergiNo: "",
+    vergiDairesi: "",
+    firmaAdi: "",
+    firmaAdres: "",
+    firmaTelefon: "",
+    firmaBanka: "",
+    firmaIBAN: "",
+    stajYeritelefon: "",
+    stajyerieposta: "",
   });
+
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
@@ -210,8 +211,8 @@ export default function DocumentPage() {
                     key.toLowerCase().includes("tarihi")
                       ? "date"
                       : key.toLowerCase().includes("eposta")
-                      ? "email"
-                      : "text"
+                        ? "email"
+                        : "text"
                   }
                   name={key}
                   value={formData[key as keyof typeof formData]}
@@ -275,9 +276,8 @@ export default function DocumentPage() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full text-white font-bold py-2 rounded-lg mt-6 transition ${
-              loading ? "bg-gray-500 cursor-not-allowed" : "bg-purple-700 hover:bg-purple-800"
-            }`}
+            className={`w-full text-white font-bold py-2 rounded-lg mt-6 transition ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-purple-700 hover:bg-purple-800"
+              }`}
           >
             {loading ? "Oluşturuluyor..." : "PDF Oluştur"}
           </button>

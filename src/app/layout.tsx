@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SessionWrapper from "../../components/sessionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,15 +16,13 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
     const theme = storedTheme || (prefersDark ? "dark" : "light");
-
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, []);
@@ -33,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SessionWrapper>{children}</SessionWrapper>
+        {children}
       </body>
     </html>
   );

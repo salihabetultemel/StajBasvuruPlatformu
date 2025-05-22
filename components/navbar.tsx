@@ -1,21 +1,13 @@
 "use client";
 
 import React from "react";
-import { useSession } from "next-auth/react";
 import { Menu } from "lucide-react";
-import Image from "next/image";
 
 type NavbarProps = {
   toggleSidebar: () => void;
 };
 
 const Navbar = ({ toggleSidebar }: NavbarProps) => {
-  const { data: session } = useSession();
-  const defaultProfilePicture = "/defaultprofilepicture.jpg";
-
-  const username = session?.user?.name || "Profil";
-  const profilePicture = session?.user?.image || defaultProfilePicture;
-
   return (
     <div className="fixed top-0 left-0 w-full z-50 flex h-20 items-center justify-between px-6 md:px-10 bg-[#0f172a] shadow-lg">
       <button
@@ -27,18 +19,6 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
 
       <div className="text-lg text-white font-semibold tracking-wide absolute left-1/2 transform -translate-x-1/2">
         STAJ BAŞVURU PLATFORMU
-      </div>
-
-      <div className="absolute right-6 md:right-10 flex items-center space-x-3">
-        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-400 shadow-md relative">
-          <Image
-            src={profilePicture}
-            alt="Profil"
-            fill
-            className="object-cover rounded-full"
-          />
-        </div>
-        <span className="text-white font-medium hidden md:block">{username}</span>
       </div>
     </div>
   );

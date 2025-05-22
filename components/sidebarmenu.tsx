@@ -1,16 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { signOut } from "next-auth/react";
-import { User, Info, LogOut, Sun, Moon, MessageSquare,Home  } from "lucide-react";
+import { User, Info, LogOut, Sun, Moon, MessageSquare, FileText, Home, HelpCircle } from "lucide-react";
 
 export type SidebarMenuProps = {
   isOpen: boolean;
-  toggleSidebar: () => void; // diğer sayfalar uyumlu kalabilsin diye burada bırakıyoruz
+  toggleSidebar: () => void;
 };
 
 const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
-  const { isOpen } = props; // sadece isOpen kullanılıyor, toggleSidebar kullanılmadığı için destructure edilmiyor
+  const { isOpen } = props;
 
   const [isDark, setIsDark] = useState(false);
 
@@ -18,7 +17,6 @@ const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
     const current = localStorage.getItem("theme");
     setIsDark(current === "dark");
   }, []);
-
 
   return (
     <div
@@ -31,35 +29,28 @@ const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
         </div>
         <ul className="px-4 py-6 space-y-4">
           <li>
-          <a
+            <a
               href="/home"
               className="flex items-center gap-3 p-2 rounded-md hover:bg-[#1e293b] hover:text-white transition"
             >
               <Home className="w-5 h-5" /> Anasayfa
             </a>
-            </li>
-            <li>
-            <a
-              href="/profile"
-              className="flex items-center gap-3 p-2 rounded-md hover:bg-[#1e293b] hover:text-white transition"
-            >
-              <User className="w-5 h-5" /> Profil Bilgilerim
-            </a>
           </li>
           <li>
             <a
-              href="/about"
+              href="/document"
               className="flex items-center gap-3 p-2 rounded-md hover:bg-[#1e293b] hover:text-white transition"
             >
-              <Info className="w-5 h-5" /> Hakkımızda
+              <FileText className="w-5 h-5" /> Belge Oluştur
             </a>
           </li>
+
           <li>
             <a
-              href="/feedback"
+              href="/sss"
               className="flex items-center gap-3 p-2 rounded-md hover:bg-[#1e293b] hover:text-white transition"
             >
-              <MessageSquare className="w-5 h-5" /> Geri Bildirim
+              <HelpCircle className="w-5 h-5" /> SSS
             </a>
           </li>
         </ul>
@@ -93,19 +84,12 @@ const SidebarMenu: React.FC<SidebarMenuProps> = (props) => {
             </button>
           </div>
 
-
           <p className="text-xs text-gray-400 mt-2">
             {isDark ? "Karanlık Mod" : "Aydınlık Mod"}
           </p>
 
           <div className="border-t-2 border-[#a5adba] w-full my-4" />
 
-          <button
-            onClick={() => signOut({ callbackUrl: "/login" })}
-            className="w-full flex items-center gap-3 p-2 text-red-400 hover:text-red-200 hover:bg-[#1e293b] rounded-md transition"
-          >
-            <LogOut className="w-5 h-5" /> Oturumu Kapat
-          </button>
         </div>
       </div>
     </div>
